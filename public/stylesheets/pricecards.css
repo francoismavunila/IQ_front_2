@@ -1,0 +1,29 @@
+.content{
+    background-color: aliceblue;
+    height: 300px;
+    width: 300px;
+    display: inline-block;
+    margin-top: 140px;
+    margin-left: 70px;
+}
+.content:hover{
+    width: 400px;
+    height: 400px;
+    Background-color:gold;
+    
+}
+.button{
+      background-color: darkslateblue;
+      margin-left: 60px;
+      padding: 8px;
+      border-radius: 5px;
+}
+.button:hover{
+      background-color: yellowgreen;
+} 
+.content p{
+    text-align: center;
+}
+.content h2,h3,h4{
+    text-align: center;
+}

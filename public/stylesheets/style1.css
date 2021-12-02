@@ -1,0 +1,89 @@
+.mydiv{
+	width: 500px;
+	background-color: #726378;
+}
+<div id="main-mandate">
+            <span style="font-size: 2.5rem;font-weight: bolder;padding: 0;margin: 0;border: 0;">"</span>
+             <p style="font-size:1.5rem;font-style: italic;">The <span style="color:#808000">main mandate</span> of this channel is to equip you with ideas that will help you to live holistically abundant and purposeful life.</p>  
+        </div><br>
+         <div id="carouselExampleControls" class="carousel slide ours" data-ride="carousel" >
+          <div class="carousel-inner " style="display:flex;justify-content: center;width: 100%;height: 100%;" >
+            <div class="carousel-item active our ">
+                <div>
+                   <h4>Our purpose</h4>
+                    <ul>
+                        <li>To add value and life to the world</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="carousel-item our">
+                <div>
+                       <h4>Our legacy</h4>
+                    <ul>
+                        <li>To stand as a beacon and icon of influence towards greatness for a thousand generations to come.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="carousel-item our">
+                 <div>
+                      <h4>Our mission</h4>
+                    <ul>
+                        <li>To create great men and women through a practical schooling system.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="carousel-item our">
+                <div>
+                  <h4>Our vision</h4>
+                <ul>
+                    <li> To be the world’s leading educational institute that creates world’s renowned significant men and women who will make a positive mark in the world.</li>
+                </ul>
+               </div>
+            </div>
+            <div class="carousel-item our">
+                <div>
+                  <h4>Our goals</h4>
+                    <ul>
+                        <li>To open an online international university</li>
+                        <li>To research on variables that lead to greatness</li>
+                        <li>To invent new learning technologies</li>
+                        <li>To reach every country and region in the world</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="carousel-item our">
+                <div>
+                        <h4>Our beliefs</h4>
+                        <ul>
+                            <li>We believe that everyone has an equal potential to become great.</li>
+                            <li> We believe we can help you realize the areas of potential and exploit them to become great.</li>
+                            <li>We believe that greatness lies in the contribution you make to the world.</li>
+                            <li>We believe that you are great.</li>
+                        </ul>
+                    </div>
+            </div>
+            <div class="carousel-item our">
+                <div>
+                     <h4>Our values</h4>
+                    <ul>
+                        <li>Integrity</li>
+                        <li>Resilience</li>
+                        <li>Gratitude</li>
+                        <li>Significance</li>
+                        <li>Purpose</li>
+            </ul>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+
+        
+<br><br>

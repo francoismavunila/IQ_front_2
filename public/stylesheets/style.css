@@ -1,0 +1,738 @@
+ body , html{
+font-size: 16px;
+}
+*{
+	font-family: Helvetica , sans-serif ;
+}
+#edit_img{
+	display: none;
+}
+
+#prod_img{
+	width: 100px;
+	height : auto;
+}
+#imgprev{
+	width: 150px;
+	heigh : auto;
+}
+
+body{
+margin: 0;
+padding: 0;
+
+}
+th, td{
+	padding-right: 50px;
+}
+
+.box{
+	background-image: url('images/bg.jpg');
+	background-size: cover;
+	height: 500px;
+	
+}
+
+
+
+.h3heading{
+	font-size: 1rem;
+
+}
+/* navigation bar*/
+.navbar{
+	font-size: 1rem;
+	padding-top:0.00rem;
+	padding-bottom: 0.00rem;
+	margin-top: 0;
+	margin-bottom: 0;
+	background-color:#808000; 
+	max-height: 4.375em;
+	min-height: 4.375em;
+	overflow: hidden;
+	top: 0;
+	position: fixed;
+	width: 100%;
+	z-index: 99;
+}
+
+
+@media (min-width: 768px) and (max-width: 992px){
+
+}
+
+/*small*/
+@media only screen and  (max-width: 481px){
+	#logo-text{
+		display: none;
+		}
+
+}
+
+/*end of navigation*/
+
+
+
+.dropdown-menu{
+	background-color: #000016;
+}
+.dropdown-menu .dropdown-item{
+	font-family: poppins;
+	color: #ffffff;
+}
+#logo-text{
+	color: #ffffff;
+	font-family: sans-serif;
+	font-weight: bolder;
+}
+.square-circular{
+	width:200px;
+
+}
+.navbar-nav li{
+	padding-left: 1.5rem;
+}
+.nav-link{
+	font-size: 1.0rem !important;
+}
+#user_img{
+	margin-top: 20px;
+	width: 50%;
+	object-fit: cover;
+}
+
+
+
+
+
+button{
+	background-color: #c1c1c1c1;
+	cursor: pointer;
+}
+button:hover {
+	background-color: #808000;
+}
+
+.login_image{
+	width: 200px;
+	height: auto;
+	border-radius: 50%;
+}
+.signup{
+	border: 6px solid #808000;
+	width: 300px;
+	padding: 6px;
+}
+.logout_btn{
+left: 20px;
+
+}
+.alert{
+background-color: #ff9999;
+border: 1px solid;
+padding: 5px;
+margin: 20px;
+position: fixed;
+left: 47%;
+display: inline-block;
+text-align: center;	
+}
+.alert_msg{
+font-weight: bold;
+color: #595959;	
+}
+
+
+
+
+/*admin dashboard area*/
+	.more_card{
+		position: fixed;
+		top: 20%;
+		left: 3%;
+		width: 94%;
+		box-shadow: 0px 0px 10px #222222;
+		background-color: #222222;
+		z-index: 99;
+		display: none;
+		color: #ffffff;
+		padding-top: 1.5rem;
+		padding-left: 1rem;
+		max-height: 100vh;
+		padding-top: 0px;
+		text-align: left;
+	}
+	@media only screen and (min-width : 992px){
+     .more_card{
+     	width: 60%;
+     	left: 30%;
+     }
+   }
+		#program_cards_container{
+	 width: 100%;
+	 display: flex;
+	 flex-direction: row;
+	 flex-wrap: wrap;
+	 justify-content: center;
+	 align-items: baseline;
+	}
+#user_img{
+	padding: 100px;
+	backdrop-filter: blur(8px);
+}
+
+.lead{
+	font-weight: bolder;
+	font-family: georgia ,serif;
+	color: #111111;
+}
+.lead : hover{
+	color: #808000;
+}
+.user_data{
+	font-size: 20px;
+	font-family: georgia ,serif;
+}
+.about{
+	border: 2px solid #800000;
+}
+/* end of admin dashboard area*/
+
+
+/*departments*/
+ .department_data{
+ 	display: inline-block;
+ }
+ .table_data p{
+ 	table-layout: fixed;
+ 	width: 500px;
+ 	overflow: hidden;
+ 	word-wrap: break-word;
+ }
+ #dep{
+ 	margin-top: 50px;
+ }
+ td ,th{
+ 	border-top: 1px solid grey;
+ 	border-bottom : 1px solid grey;
+ }
+/*end of departments*/
+
+
+
+/*forms*/
+.login_forms{
+	width: 90%;
+	margin-left: 5%;
+	height: 100;
+}
+.edit_input{
+	padding: 10px;
+}
+.input{
+	padding: 10px;
+	text-align: center;
+}
+.full_form{
+	display: block;
+}
+.form_container{
+padding-top: 10px;
+margin: auto; /*aligns form to the centre*/
+display: flex;
+text-align: center;
+width: 300px;
+
+}
+form{
+	border:6px solid #808000;
+	padding: 10px;
+}
+
+
+
+.form_container form div input{
+	width: 100%;
+	border: 2px solid #808000;
+}
+#dep_form div{
+
+}
+#dep_form{
+	display: none;
+}
+
+.input_area{
+	width: 200px;
+	
+}
+@media only screen and (min-width: 481px){
+
+ }
+ @media only screen and (min-width : 768px){
+
+}
+
+@media only screen and (min-width : 992px){
+.login_forms{
+	width: 25%;
+	margin-left: 38%;
+}
+}
+ @media only screen and (min-width : 1440px){
+   
+}
+
+/*end of forms*/
+
+/*edit admin*/
+.preview{
+	
+	width: auto;
+}
+#base64_data{
+	display: none;
+}
+#image_crop{
+	display: none;
+}
+#img_canvas{
+	display: none;
+}
+#crop_frame{
+			background-color: #000000;
+			position: absolute;
+			overflow: scroll;
+		}
+#image_frame{
+			
+			border: 2px solid black;
+		}
+
+/*end edit admin*/
+
+
+
+/*admin area*/
+.admin_card{
+	
+	margin: 20px;
+	background-color: #fffafa;
+	
+}
+.pro{
+	display: none;
+}
+.card_img{
+	display: inline-block;
+}
+#card_btn_container{
+
+	
+}
+.card_btn{
+	margin: 5px;
+	color:#ffffff;
+	background-color: #222222;
+	
+	
+}
+#ad_img{
+	display: table;
+	width: 0;
+}
+
+/*end admin area*/
+
+
+
+
+/*div columns*/
+.column_2{
+	margin-top: 40px;
+	padding-top: 40px;
+
+}
+.column_3{
+    margin-top: 100px;
+	padding-top: 20px;
+}
+/*end of div column*/
+
+
+
+
+
+/*side slidebar for admin dashboard*/
+.cls_btn , .cls_btn_1{
+	margin-left: 10px;
+	color: white;
+	font-weight: bolder;
+	float: right;
+	cursor: pointer;
+	transition: 0.3s;
+
+}
+.main_container{
+	margin-top: 4.4em;
+}
+#sidebar{
+font-size: 1rem;
+height: 100%;
+width: 50%;
+color: #ffffff;
+background-color: #222222;
+position: fixed;
+z-index: 1;
+top: 4.4em;
+left: 0;
+overflow-y: scroll;
+overflow-x: hidden;
+padding-bottom: 1.25em;
+}
+
+.sidebar-header{
+	padding: 0.625em;
+	width: 100%;
+	border-bottom: 0.0625em solid #000000;
+	background-color: #111111;
+}
+.sidebar-header img{
+	border-radius: 50%;
+	width: 90%;
+	margin: 5%;
+}
+
+#sidebar ul li{
+	padding:0.3125em 0;
+	padding-left: 0.5em;
+	border-bottom: 1px solid #000000;
+} 
+#sidebar ul .active a {
+	color: #fff;
+	font-size: 1em;
+
+}
+#sidebar ul .active a:hover{
+	color: #808000;
+    
+}
+#sidebar ul li ul{
+	background-color:#000000;
+}
+#sidebarToggler{
+	display :none;
+	color: #000000;
+	margin-top: 5em;
+	margin-left: 1em;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+@media only screen and (min-width: 481px){
+
+ }
+ @media only screen and (min-width : 768px){
+
+}
+
+@media only screen and (min-width : 992px){
+  #sidebar{
+		width: 25%;
+		}
+	 .cls_btn{
+	   display: none;
+	   }
+}
+ @media only screen and (min-width : 1440px){
+   
+}
+
+/*End side slidebar for admin dashboard*/
+/*-----Media Queries -------*/
+
+
+/*main part*/
+  .main_sub_container{
+    width: 100%;
+  }
+  @media only screen and (min-width : 992px){
+  .main_sub_container{
+    width: 74%;
+    float: right;
+  }
+}
+/*---end of main part---*/
+
+
+
+#slider{
+	height: 300px;
+	background-color: #ffffff;
+	border: solid;
+	top: 400px;
+	padding: 0px;
+	border-radius: 47%;
+}
+.slider-side{
+
+	height: 0px;
+	background-color: #557888;
+}
+.welcome_note{
+	padding-top: 20px;
+}
+/*-------firefox Bug Fix --------*/
+.carousel-item{
+	transition: -webkit-transform 0.5s ease;
+	transition: transform 0.5s ease;
+	transition: transform 0.5s ease , -webkit-transform 0.5s ease;
+	-webkit-backface-visibility:visible;
+	backface-visibility: visible;
+	
+}
+.carousel-inner img {
+	width: auto;
+	height: 500px;
+}
+
+
+/*-----fixed BACKGROUND IMAGE ------*/
+figure {
+	position: relative;
+	width: 100%;
+    height: 60%;
+    margin: 0! important;
+
+}
+
+.fixed-wrap{
+	clip: react(0,auto,auto,0);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+}
+#fixed {
+	background-image: url('images/PICQUOTES1.png');
+	position: fixed;
+	display: block;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center center;
+	-webkit-transform: translateZ(0);
+	        transform: translateZ(0);
+	 will-change: transform;
+}
+/*-------bootstrap Padding Fix-----*/
+[class="col-"]{
+	padding : 1rem;
+}
+.padding{
+	padding-top: 40px;
+	padding-bottom: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.padding-slider{
+	
+	padding-bottom: 20px;
+}
+#footer{
+	height: 600px;
+}
+#welcome_img{
+	width: 200px;
+	height: 200px;
+}
+.welcome_note{
+	width: auto;
+	margin-top:20px;
+}
+#connect{
+	margin: 0 auto;
+}
+
+
+
+/*foooooootteeer*/
+footer{
+	background-color: #000016;
+
+	
+}
+
+
+.h3-footer{
+	font-size: 20px;
+	font-family: harlow solid italic ;
+	color: #CC9900;
+	margin: 0px;
+
+}
+.p-footer{
+	font-family:Georgia;
+	font-size: 16px;
+	color: #cccccc;
+	margin: 0px;
+	
+	}
+.border{
+		border: 10px ridge blue;
+	}
+.footer2 a{
+		background-color: #ffffff;
+		width: 30px;
+		height:30px;
+		border-radius: 50%;
+		display: inline-block;
+	}
+	.footer2 a i{
+		font-size: 20px;
+		padding: 5px;
+		color: #000016;
+	}
+	.p-footer a{
+		color: #ffffff;
+		font-style: italic;
+	}
+	.footer3 form input[type=submit]{
+		background-color: #CC9900;
+		border: none;
+		padding: 3px 3px; 
+		margin-left: -5px;
+		text-transform: uppercase;
+		color: #ffffff;
+	}
+	.bottom-footer{
+		text-align: center;
+		line-height: 40px;
+		background-color: #000011;
+	}
+	.footer3 form{
+		padding: 10px 10px;
+		margin-left: -10px;
+	}
+	.card-img-top{
+      height: 15vw;
+
+	}
+
+	/*categories and programs*/
+	.categories{
+		border-top: 0.05em solid black;
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+    justify-content: space-around;
+	}
+
+	.categories_card{
+	 padding: 0;
+	 max-width: 100%;
+	 display: inline-block;
+	 word-wrap: break-word;
+	 padding: 0.5em;
+	 border : 1px solid white;
+	 box-shadow: 0px 0px 10px #222222;
+	 margin-top: 0.5em;
+	}
+    #edit_btn{
+    float: left;
+    }
+    #edit_btn a , #delete_btn a{
+    color: #000000;
+    }
+    #delete_btn{
+     float: right;
+     bottom: 0;
+    }
+	#program_cards_container{
+	 width: 100%;
+	}
+	.cat_edit_form{
+		position: absolute;
+		top: 45%;
+		left: 55%;
+	}
+	.overlay{
+		width: 100%;
+		height: 100%;
+		background-color: #222222;
+		position: fixed;
+		top: 0;
+		left: 0;
+        opacity: 0.5;
+		
+	}
+	.program_cards{
+	 width: 80%;
+	  box-shadow: 0px 0px 10px #222222;	
+	  margin-top: 0.8em;
+	  margin-left: 0.8em;
+	  margin-right: 0.8em;
+	}
+	.program_cards_image{
+      width: 100%;
+	}
+	.program_cards_image img{
+     width: 100%;
+	}
+	.program_cards_body{
+
+	}
+	#alert_prog_cont_form{
+		display: none;
+		z-index: 1;
+	}
+	#program_video_form{
+		
+	}
+	.video_content , .audio_content , .article_content{
+		box-shadow: 0px 0px 10px #222222;
+		border-radius: 2%;
+		width: 96%;
+		margin-left: 2%;
+		display: block;
+	}
+	.video_content video{
+		width: 85%;
+	}
+	.audio_content audio{
+		width: 85%;
+	}
+	.float-lef{
+		float: left;
+	}
+@media only screen and (min-width: 481px){
+  	.program_cards{
+	 width: 60%;
+	}
+	
+ }
+ @media only screen and (min-width : 768px){
+  	.program_cards{
+	 width: 40%;
+	}
+}
+
+@media only screen and (min-width : 992px){
+  	.program_cards{
+	 width: 30%;
+	}
+	.categories_card{
+	margin: 1.5rem;
+	 max-width: 20%;
+	}
+}
+ @media only screen and (min-width : 1280px){
+  	.program_cards{
+	 width: 25%;
+	}
+}
+  
+	/*end of categories and programs*/
