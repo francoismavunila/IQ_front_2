@@ -1,0 +1,69 @@
+{
+  "name": "infinity-quo-twm",
+  "version": "1.0.0",
+  "description": "infinity quo interactive site",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/npm/npm.git"
+  },
+  "dependencies": {
+    "assert": "^2.0.0",
+    "aws-sdk": "^2.1037.0",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "bug-killer": "^4.4.4",
+    "connect-busboy": "0.0.2",
+    "connect-flash": "^0.1.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
+    "express-handlebars": "^5.3.5",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.17.2",
+    "express-validator": "^6.13.0",
+    "fs-extra": "^9.1.0",
+    "google-auth-library": "^7.10.2",
+    "googleapis": "^73.0.0",
+    "handlebars-helpers": "^0.10.0",
+    "lien": "^3.3.1",
+    "mkdirp": "^1.0.4",
+    "mongoose": "^5.13.13",
+    "nodemailer": "^6.7.2",
+    "opn": "^6.0.0",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.1.0",
+    "paypal-rest-sdk": "^1.8.1",
+    "r-json": "^1.2.10",
+    "readline": "^1.3.0",
+    "request": "^2.88.2",
+    "resize-img": "^2.0.0",
+    "uuid": "^8.3.2",
+    "youtube-api": "^3.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "programs/*",
+      "programs/*",
+      "public/*",
+      "views/*"
+    ]
+  },
+  "scripts": {
+    "begin": "nodemon ./server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "14.17.3"
+  },
+  "keywords": [
+    "iq"
+  ],
+  "author": "Francois Mavunila (twm)",
+  "license": "ISC"
+}
