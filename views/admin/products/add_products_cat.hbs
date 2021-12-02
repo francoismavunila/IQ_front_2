@@ -1,0 +1,27 @@
+<div class="main_sub_container">
+	
+     <form  action="addCat" name="products_category" id="edit_form" onsubmit="return validation()" method="post" >
+   	       {{#if errors.length}}
+			{{#each errors}}
+			<div class="alert">
+				<span class="cls_btn" onclick="this.parentElement.style.display='none';">&times;</span>
+				<span class="alert_msg">{{this}}</span>
+			</div>
+			<br>
+			{{/each}}
+			{{/if}}
+			<div >
+			<label for="cat_name" class="lead">Category name</label><br>
+		    <input  type="text" value="{{cat_name}}" placeholder="Enter category name" name="cat_name">	
+			</div><br><br>
+			<div >
+			<label for="description" class="lead">description</label>
+		    <textarea type="text" name="description" rows="8" class="input_area"  placeholder="what is it about">{{des}}</textarea>
+		    <script type="text/javascript">CKEDITOR.replace('description');</script>	
+			</div>
+			
+			
+			<button type="submit">submit</button>
+		    
+	</form>
+</div>

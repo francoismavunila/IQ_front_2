@@ -1,0 +1,25 @@
+<div class="spaceFromNav narrow-width dark-bg" >
+	<br><br>
+	<div>
+		<video autoplay loop class="programs_gif" width="100%">
+			<source src="/vids/programs.mp4" type="video/mp4">
+		</video>
+	</div><br>
+	<div class="intro_text">
+	<h2 class="sub_heading" style="color: #ffffff">CATEGORIES</h2>
+	</div>
+<div class="categories"">
+		{{#if cat.length}}
+		{{#each cat}}
+		<a href="/programs/{{this._id}}">
+		<div class="categories_card">
+		    <p class="lead">{{this.Name}}</p>
+		 </div>
+		</a>
+		{{/each}}
+		{{else}}
+		<br><br>
+		 <h4 style="text-align: center;"">NO CATEGORIES AVAILABLE FOR OW</h4>
+		{{/if}}
+</div>
+</div>

@@ -1,0 +1,84 @@
+<div class="spaceFromNav dark-bg" >
+    
+<button style="position: fixed;top:70;" onclick="selected()">Done</button>
+	{{#if cat}}
+		{{#each cat as |category|}}
+        <br>
+        <hr style="background-color: #808000;width:50%">
+        <div style="width: 100%;color:antiquewhite;text-align:center;"><h3 style="padding:0px;margin:0px">{{../max}} {{category.Name}}</h3><br></div>
+            
+            <div id="program_cards_container" >
+             {{#each ../prog as |program|}}
+               {{#if (eq program.Category category.Name)}}
+                 	<a href="/lessons?prog_name={{this.Name}}&cat={{../cat_name}}&prog_img={{this.Program_image}}">
+                        <div class="program_cards">
+                            <div class="program_cards_image">
+                                <img src="{{program.Program_image}}" alt="program image here">
+                            </div>
+                            <div class="program_cards_head">
+                            <a  class="lead">{{program.Name}}</a><br>
+                            </div>
+                            <div id="overlay" style="display: none;" class="overlay">
+                            </div>
+                        <div class="more_card" id="{{this._id}}" >
+                            <button type="button" style="color: #ffffff;float: right;" id="close_form" name="{{this._id}}" onclick="dismForm(this.name)">&times;</button><br>
+                            <p> <span class="titles">Title : </span>{{program.Name}}</p>	
+                            <hr style="background-color: #333333">
+                            <p class="titles">description :</p>  
+                            {{{program.Description}}}
+                            <hr style="background-color: #333333">
+                            <p><span class="titles">Price:</span> ${{program.Price}}</p>
+
+                        </div>
+                        <button style="border-radius: 0"  name="{{this._id}}" onclick="displayForm(this.name)">more</button><br>
+                      <label for="select" style="color:white">
+                        <input type="checkbox" id="this._id" class="selected_progs" name="select" value="{{program._id}}"  onchange="cont()" > select
+                      </label>
+                    </div>
+                    </a> 
+               {{/if}}
+             {{/each}}
+             </div>
+	       <br>
+		{{/each}}
+	{{/if}}
+ 
+</div>
+<script>
+    function selected(){
+    const checkboxes = document.querySelectorAll('input[name="select"]:checked')
+     let sel = [];
+     console.log("done");
+     checkboxes.forEach((checkbox) => {
+            console.log(checkbox.value);
+            sel.push(checkbox.value);
+        });
+    
+        $.ajax({
+            contentType: 'application/json',
+            type: "POST",
+            url: '/subscriber/selected',
+            data: JSON.stringify( sel ),
+            success: function(data) {
+                console.log('Call was successful');
+            }
+            });
+    }
+    function cont(){
+      const checkboxes = document.querySelectorAll('input[name="select"]:checked');
+      const check = document.querySelectorAll('input[name="select"]');
+      var max = "{{max}}";
+      console.log(checkboxes.length);
+     if(checkboxes.length>=max){
+         check.forEach((checkbox) => {
+             if(!checkbox.checked){
+               checkbox.style.display="none";
+             }
+            
+        });
+         
+         alert("you have selected enough programs for your subscription, if you done click done button");
+     }
+     
+    }
+</script>

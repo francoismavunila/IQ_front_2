@@ -1,0 +1,48 @@
+<div class="main_sub_container spaceFromNav">
+
+	<div id="program_cards_container">
+
+			 <div style="display: block; text-align: center;width: 100%">
+				 	<div class="video_content">
+				 	        <h4>Video Content</h4>
+				 	        {{#each program_cont as |parent|}}
+
+						    {{#each parent.Video as |child|}}
+						       <div>
+						    	<video id="video"  height="auto" controls="controls" onloadedmetadata="">
+						    	  <source src="http://localhost:3001/program_content/video/streaming?doc={{parent._id}}&sub={{child._id}}" type="video/mp4">	
+						    	</video>
+						    	</div>
+					       {{/each}}
+			       </div>
+			       <br>
+			      
+			       	<h4>Audio Content</h4>
+			       {{#each parent.Audio as |child_aud|}}
+			        <div class="audio_content">
+			           <div>	
+				           <audio  controls>
+					    		<source src="http://localhost:3001/program_content/audio/streaming?doc={{parent._id}}&sub={{child_aud._id}}" type="audio/mp3">
+					    	</audio>
+				    	</div>
+		            </div>
+			       {{/each}}
+	               <br>
+	               <br>
+	               {{#each parent.Article as |child_art|}}
+	               <div class="article_content">
+	               	 <h4>Articles</h4>
+	               	 <div>
+		               	 <embed width="100%" height="0" scrollbar="0" src="http://localhost:3001/admin/programs/program_content/article/streaming?doc={{parent._id}}&sub={{child_art._id}}" type="application/pdf"></embed>
+		               	 <a href="http://localhost:3001/program_content/article/streaming?doc={{parent._id}}&sub={{child_art._id}}" target="_blank"><button>view article</button></a>
+		             </div>
+	               </div>
+	               <br><br>
+                   {{/each}}
+                  {{/each}}
+			 </div>  
+
+	         
+
+
+	</div>

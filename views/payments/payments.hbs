@@ -1,0 +1,29 @@
+{{!-- contains a number of payment options --}}
+<div class="spaceFromNav" >
+    <div id="paypal-button-container-{{package_id}}"}}></div>
+    
+    <script src="https://www.paypal.com/sdk/js?client-id=ARxo1slqoFzPlTECeuhG9NmcqNxfQ5nfovsojfuZompOXWE4LLEDL66Br_xARnKdQ6gn0U-Cnfxu146o&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+    <script>
+    paypal.Buttons({
+        style: {
+            shape: 'rect',
+            color: 'gold',
+            layout: 'vertical',
+            label: 'subscribe'
+        },
+        createSubscription: function(data, actions) {
+            return actions.subscription.create({
+            /* Creates the subscription */
+            plan_id: '{{package_id}}'
+            });
+        },
+        onApprove: function(data, actions) {
+            
+           console.log(data.facilitatorAccessToken); 
+          $.post('/subscriber/paypal/success',{"subscriptionID":data.subscriptionID,"facilitatorAccessToken":'{{access_token}}'},function(){
+              
+          })
+        }
+    }).render('#paypal-button-container-{{package_id}}'); // Renders the PayPal button
+    </script>
+</div>

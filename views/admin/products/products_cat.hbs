@@ -1,0 +1,53 @@
+<div class="main_sub_container" id="main_sub">
+     {{#if errors.length}}
+			{{#each errors}}
+			<div class="alert">
+				<span class="cls_btn" onclick="this.parentElement.style.display='none';">&times;</span>
+				<span class="alert_msg">{{this}}</span>
+			</div>
+			<br>
+			{{/each}}
+			{{/if}}
+
+	<br>
+		<button style="float: right;margin-right: 0.6em;"> <a href="/admin/products/addCat">add category</a> </button>
+	
+
+	<div class="categories">
+		{{#if cat.length}}
+		{{#each cat}}
+		<div class="categories_card">
+		    <a href="/admin/products/prod/{{this.Name}}" class="lead"> {{this.Name}}</a><br>
+		  	<button  name="{{this._id}}" onclick="displayForm(this.name)">edit</button>
+		  	<button id="delete_btn"><a href="/admin/products/categories/delete/{{this._id}}">delete</a></button>
+		  	<div id="overlay" style="display: none;" class="overlay" >
+		    </div>
+		   <form class="cat_edit_form" id="{{this._id}}"  style="background-color: #222222;z-index: 99;display: none;" method="post" action="/admin/products/categories/edit">
+			  	  <button type="button" style="color: #ffffff;float: right;" id="close_form" name="{{this._id}}" onclick="dismForm(this.name)">&times;</button><br>
+			      <input type="hidden" name="id" value="{{this._id}}">
+			      <label style="color: #ffffff">Change <span style="font-weight: bolder;color: #808000">{{this.Name}}</span> to:</label><br>
+			      <input type="text" name="cat_name"><br>
+			      <button>submit</button>
+			</form>
+		 </div>
+	   
+		{{/each}}
+		{{else}}
+		<br><br>
+		 <h4 style="text-align: center;">NO CATEGORIES AVAILABLE YOU CAN CLICK THE ADD BUTTON TO ADD COURSES</h4>
+		{{/if}}
+      </div>
+      <script type="text/javascript">
+      	function displayForm(id){
+      		document.getElementById("overlay").style.display="block";
+      		document.getElementById("main_sub").blur();
+      		console.log(id);
+      		var form = document.getElementById(id);
+      		form.style.display="block";
+      	}
+      	function dismForm(id){
+      		document.getElementById("overlay").style.display="none";
+      	 document.getElementById(id).style.display="none";	
+      	}
+      </script>
+</div>

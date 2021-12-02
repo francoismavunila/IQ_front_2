@@ -1,0 +1,104 @@
+
+		
+		
+   
+
+     <div class="main_sub_container">
+     	<div class="form_container" id="reg_form">
+			
+          
+
+		<form  action="/admin/registration" name="registration" onsubmit="return validation()" method="post" >
+			 {{#if errors.length}}
+			{{#each errors}}
+			<div class="alert">
+				<span class="cls_btn" onclick="this.parentElement.style.display='none';">&times;</span>
+				<span class="alert_msg">{{this}}</span>
+			</div>
+			<br><br>			{{/each}}
+			{{/if}}
+			<div class="login_image_container">
+				<img src="/images/users/not_logged.png" alt="avatar" class="login_image">
+			</div>
+			<div class="input">
+			<label for="first name"></label>
+		    <input  type="text" placeholder="Enter your name" name="name">	
+			</div>
+			<div class="input">
+			<label for="surname"></label>
+		    <input  type="text" placeholder="Enter your surname" name="surname">	
+			</div>
+			<label>Choose department</label>
+			<select name="department">
+				<option value="not assigned">Not assigned</option>
+		      
+				{{#each department}}
+				  <option  value="{{this.Name}}">
+	                {{this.Name}}
+				  </option>
+				{{/each}}
+			</select>
+			<div class="input">
+			<label for="department"></label>
+		    <input  type="text" placeholder="Position" name="position">	
+			</div>
+			<!---<div class="input">
+		    <progress value="0" max="100" id="gauge">
+			</div>--->
+		    <div class="input">
+		    <label for="Email"></label>
+		    <input  type="email" name="email" placeholder="Enter your email">	
+		    </div>
+		    <div class="input">
+		    <label for="Admin Priviledge"></label>
+		    <select  name="admin_power" >
+		    	<option  Value=false>Give admin restricted access</option>
+		    	<option  Value=true >Give admin access to all edits</option>
+		    </select>
+		    </div>
+		    <button type="submit">submit</button>
+		    <br>
+		    <button type="button" style="margin: 10px">login instead</button>	
+		</form>	
+
+		</div>
+     </div>
+		
+   <!--------
+		<script type="text/javascript">
+		 function dismiss_alert(){
+		 	document.getElementsByClassName('alert').style.display ='none';
+		 }
+
+			function validation(){
+			
+			var nme = document.getElementById('name').value;
+			var sur = document.getElementById('surname').value;
+			var depart = document.getElementById('dep').value;
+			var mail = document.getElementById('email').value;
+		    
+
+			if(nme=="" || sur=="" || depart=="" ||  mail==""){
+
+				alert('registration failed , makesure all fields are filled');
+				return false;
+			}
+		    if(uname.length<3){
+		    	alert('user name must have a length greater tha 2 letters');
+		    	return false;
+		    }
+		    if(pword.length<8){
+		    	alert('password must have more than 8 letters');
+		    	return false ;
+		    }
+		    if(pword.length>14){
+		    	alert('maximum password length should be 14!!!!!!!');
+		    	return false;
+		    }
+		    if(pword!=cpword){
+		    	alert('passwords do no match!!!');
+		    }
+
+			}
+		</script>
+		---->

@@ -1,0 +1,53 @@
+  
+
+ <div class="col-12 " style="margin-top: 100px">
+ 	
+ 	<div class="form_container " id="form_container" style="width: 100%">
+<form class="login_forms"  action="/admin/login" method="post" onsubmit="return val()" >
+	<div class="login_image_container">
+		<img src="/images/users/not_logged.png" alt="avatar" class="login_image">
+	</div>
+	<p>{{res.locals.error}}</p>
+	<div class="input">
+	<label for="First name"></label>
+    <input id="fname" type="text" placeholder="Enter your first name" name="name">	
+	</div>
+	<div class="input">
+	<label for="Password"></label>
+    <input id="pass" type="password" name="password" placeholder="Enter your password here">	
+	</div>
+    <div class="input">
+    <label for="Email"></label>
+    <input id="mail" type="email" name="email" placeholder="Enter your email">	
+    </div>
+    <p>Forgot <a href="#">Password?</a></p>
+    
+    <button type="submit">login</button>
+	<br>
+</form>	
+
+</div>
+
+
+<script type="text/javascript">
+	function val(){
+	
+	var name = document.getElementById('fname').value;
+	var pword = document.getElementById('pass').value;
+	var mail = document.getElementById('mail').value;
+    
+
+	if( name=="" || pword=="" ||  mail==""){
+
+		alert('make sure all fields are filled');
+		return false;
+	}
+    
+	}
+</script>
+
+
+ </div>
+
+
+

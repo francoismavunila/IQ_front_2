@@ -1,0 +1,121 @@
+<div class="main_sub_container">
+ 
+
+	<button type="button" id="add_depart_btn" onclick="add_depart()"> add department</button>
+	      
+      {{#if errors.length}}
+			{{#each errors}}
+			<div class="alert">
+				<span class="cls_btn" onclick="this.parentElement.style.display='none';">&times;</span>
+				<span class="alert_msg">{{this}}</span>
+			</div>
+			<br>
+			{{/each}}
+			{{/if}}
+     <table id="dep">
+     	<thead>
+     		<th class="lead">
+     			Department Name
+     		</th>
+     		<th class="lead">
+     			Head of department
+     		</th>
+     		<th class="lead">
+     			Goals
+     		</th>
+     		<th class="lead">
+     			About Department
+     		</th>
+     		<th class="lead">
+     			Edit depart Info
+     		</th>
+     		<th class="lead">
+     			Delete depart
+     		</th>
+     	</thead>
+     	<tbody>
+	     		{{#each department}}
+	        <tr>
+	        <td valign="top">
+	          <p class="user_data">{{this.Name}}</p>
+	        </td>
+	        
+	        	<td valign="top" class="user_data">
+	              {{this.Head}}
+		        </td>
+		        <td valign="top">
+	              {{{this.Goals}}}
+		        </td>
+		        <td valign="top" class="table_data">
+		           {{{this.Description}}}
+		        </td>
+		        <td valign="top">
+		           <a href="/admin/department/edit/{{this._id}}" class="user_data">Edit</a>
+		        </td>
+		         <td valign="top">
+		           <a href="/admin/department/delete/{{this._id}}" style="color: #cc0000" class="user_data" onclick="return confirm('Do you really want to delete this department')">delete</a>
+		        </td>
+	
+	        </tr>
+	        {{/each}}
+     	</tbody>
+        
+     </table>
+    
+    
+   <form  action="/admin/department/add" name="registration" id="dep_form" onsubmit="return validation()" method="post" >
+   	       {{#if errors.length}}
+			{{#each errors}}
+			<div class="alert">
+				<span class="cls_btn" onclick="this.parentElement.style.display='none';">&times;</span>
+				<span class="alert_msg">{{this}}</span>
+			</div>
+			<br>
+			{{/each}}
+			{{/if}}
+			<div >
+			<label for="department name" class="lead">department name</label>
+		    <input id="dname" type="text" value="{{dep_name}}" placeholder="Enter department name" name="dname">	
+			</div>
+			<div >
+			<label for="description" class="lead">description</label>
+		    <textarea type="text" name="description" rows="8" class="input_area"  placeholder="what is it about">{{des}}</textarea>
+		    <script type="text/javascript">CKEDITOR.replace('description');</script>	
+			</div>
+			<div >
+			<label for="goals" class="lead">Goals</label>
+		    <textarea type="text"  name="goals" rows="8" class="input_area"  placeholder="what are the departmental goals">{{goal}}</textarea>
+		    <script type="text/javascript">CKEDITOR.replace('goals');</script>	
+			</div>
+			<div >
+		    <label for="head" class="lead"> Choose the department head</label>
+			<select name="head">
+				<option value="not yet assigned">No yet assigned</option>
+		      
+				{{#each admin}}
+				  <option  value="{{this}}">
+	                {{this}}
+				  </option>
+				{{/each}}
+			</select>
+			</div>
+			<button type="submit">submit</button>
+		    
+	</form>
+
+   </div>
+<script type="text/javascript">
+	function confirm_delete(){
+		document.getElementById('delete_depart').style.display='block';
+	}
+	
+	function add_depart(){
+		document.getElementById('dep').style.display ='none';
+		document.getElementById('add_depart_btn').style.display ='none';
+		document.getElementById('dep_form').style.display ='block';
+	};
+	if (add) {
+		add_depart();
+	}
+	console.log(add);
+</script>

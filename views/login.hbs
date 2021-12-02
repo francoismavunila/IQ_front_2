@@ -1,0 +1,126 @@
+<script type="text/javascript">
+	function signup(){
+		document.getElementById("form_container_1").style.display="block";
+		document.getElementById("form_container_0").style.display="none";
+	}
+
+	
+</script>
+
+
+
+<div class="form_container" id="form_container_0">
+<form  action="/admin/login" method="post" onsubmit="return val()">
+	<div class="login_image_container">
+		<img src="images/users/not_logged.png" alt="avatar" class="login_image">
+	</div>
+	<div class="input">
+	<label for="First name"></label>
+    <input id="user" type="text" placeholder="Enter your first name" name="name">	
+	</div>
+	<div class="input">
+	<label for="Password"></label>
+    <input id="pass" type="password" name="password" placeholder="Enter your password here">	
+	</div>
+    <div class="input">
+    <label for="Email"></label>
+    <input id="mail" type="email" name="email" placeholder="Enter your email">	
+    </div>
+    <p>Forgot <a href="#">Password?</a></p>
+    
+    <button type="submit">login</button>
+	
+</form>	
+<div class="signup">
+<p>Dont have an admin account yet?</p> 
+<button type="button" onclick="signup()">create account</button>	
+</div>
+</div>
+
+
+<script type="text/javascript">
+	function val(){
+	
+	var name = document.getElementById('fname').value;
+	var pword = document.getElementById('pass').value;
+	var mail = document.getElementById('mail').value;
+    
+
+	if( name=="" || pword=="" ||  mail==""){
+
+		alert('make sure all fields are filled');
+		return false;
+	}
+    
+	}
+</script>
+
+
+<div class="form_container_2" >
+<form  action="/admin/registration" name="registration" onsubmit="return validation()" method="post" id="form_container_1">
+	<div class="login_image_container">
+		<img src="images/users/not_logged.png" alt="avatar" class="login_image">
+	</div>
+	<div class="input">
+	<label for="first name"></label>
+    <input id="name" type="text" placeholder="Enter your name" name="name">	
+	</div>
+	<div class="input">
+	<label for="surname"></label>
+    <input id="surname" type="text" placeholder="Enter your surname" name="surname">	
+	</div>
+	<div class="input">
+	<label for="Create Password"></label>
+    <input id="password" type="password" name="password" placeholder="Enter your password here">	
+	</div>
+	<!---<div class="input">
+    <progress value="0" max="100" id="gauge">
+	</div>--->
+	<div class="input">
+	<label for="Confirm Password"></label>
+    <input id="cpword" type="password" name="password_confirm" placeholder="Enter your password again">	
+	</div>
+    <div class="input">
+    <label for="Email"></label>
+    <input id="email" type="email" name="email" placeholder="Enter your email">	
+    </div>
+    <button type="submit">submit</button>
+    <br>
+    <button type="button" style="margin: 10px">login instead</button>	
+</form>	
+
+</div>
+
+<script type="text/javascript">
+	function validation(){
+	
+	var nme = document.getElementById('name').value;
+	var sur = document.getElementById('surname').value;
+	var pword = document.getElementById('password').value;
+	var cpword = document.getElementById('cpword').value;
+	var mail = document.getElementById('email').value;
+    
+
+	if(nme=="" || sur=="" || pword=="" || cpword=="" || mail==""){
+
+		alert('registration failed , makesure all fields are filled');
+		return false;
+	}
+    if(uname.length<3){
+    	alert('user name must have a length greater tha 2 letters');
+    	return false;
+    }
+    if(pword.length<8){
+    	alert('password must have more than 8 letters');
+    	return false ;
+    }
+    if(pword.length>14){
+    	alert('maximum password length should be 14!!!!!!!');
+    	return false;
+    }
+    if(pword!=cpword){
+    	alert('passwords do no match!!!');
+    }
+
+	}
+</script>

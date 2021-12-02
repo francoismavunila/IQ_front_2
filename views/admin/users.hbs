@@ -1,0 +1,75 @@
+        <div class="main_sub_container column_2" id="cards" style="display: flex;flex-wrap: wrap;justify-content: space-around;">
+         <div id="program_cards_container" class="team" >
+            {{#if users.length}}
+                {{#each users}}
+                    <div style="width:200px; margin: 25px;text-align:center;" style="display:inline-block;" >
+                        <div>
+                             {{#if this.Image}}
+                              <img src="/admin/{{this._id}}/{{this.Image}}" class="card_img" height="200"  alt="user image failed to load">
+                              {{else}}
+                              <img src="/images/users/not_logged.png" class="card_img" height="250"  alt="user image">
+                              {{/if}}
+                        </div>
+                         <div style="text-align:center;">
+                            <h4>{{this.Name}}</h4>
+                            <p >{{this.Position}}</p>
+                       </div>
+                       <button style="padding: 0.2rem;" class="btn" name="{{this._id}}" onclick="displayProfile(this.name)">view profile</button>
+                  </div>
+                  <div class="more_card" id="{{this._id}}" style="text-align: center;top: 8%;bottom: 8%;height: 84vh;overflow-y: scroll;padding-top: 0.8rem;border: 1px solid #808000;"  >
+                    <br><br>
+                       <button type="button" style="color: #ffffff;float: right;position: absolute;top: 0;right: 0" id="close_form" name="{{this._id}}" onclick="dismProfile(this.name)">&times;</button>
+                         <section>
+                            <div class="container">
+                                <div class="grid">
+                                    <div class="left">
+                                        <img src="/admin/{{this._id}}/{{this.Image}}" alt="" >
+                                    </div>
+                                    <div class="right">
+                                        <label class="lead">Name</label>
+                                            <p class="user_data">{{this.Name}}</p>
+                                            <label class="lead">Surname</label>
+                                            <p class="user_data">{{this.Surname}}</p>
+                                            <label class="lead">Department</label>
+                                            <p class="user_data">{{this.Department}}</p>
+                                            <label class="lead">Email</label>
+                                            <p class="user_data">{{this.Email}}</p>
+                                            <label class="lead">Admin Previledge</label>
+                                            <p class="user_data">{{this.AdminPower}}</p>
+                                            <label class="lead">CellNumber</label>
+                                            <p class="user_data">{{this.CellNumber}}</p>
+                                            <label class="lead">About</label>
+                                            <p class="user_data">{{{this.About}}}</p>
+                                            <label class="lead">Position</label>
+                                            <p class="user_data">{{this.Position}}</p>
+                                                <button style="background-color: black"><a style="font-weight: bold;background-color: black ; color: white;float:left;" href="/admin/users/edit/{{this._id}}">edit admin</a></button>
+                                               <button class ="card_btn" id="{{this.Email}}i"  style="float: right;margin: 10px;background-color: red;"> <a  href="/admin/users/delete/{{this._id}}" style="color: black;background-color: red;font-weight: bold;" onclick="return confirm('are you sure you want to remove {{this.Name}}')">Remove User</a></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+
+               </div>
+                {{/each}}
+            {{/if}}
+        </div>
+      </div>
+      
+      <div id="overlay" style="display: none;" class="overlay" >
+     </div>
+
+       <script type="text/javascript">
+        
+
+                 function displayProfile(id){
+                    document.getElementById("overlay").style.display="block";
+                    console.log(id);
+                    var more = document.getElementById(id);
+                    more.style.display="block";
+                }
+                function dismProfile(id){
+                 document.getElementById("overlay").style.display="none";
+                 document.getElementById(id).style.display="none";  
+                }
+        </script>

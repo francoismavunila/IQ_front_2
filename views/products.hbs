@@ -1,0 +1,66 @@
+<div class="spaceFromNav narrow-width dark-bg" >
+	<br><br>
+	<h2 class="sub_heading" style="color: #ffffff;text-align: center;">IQ PRODUCTS</h2>
+	<div>
+   <div  class="carousel slide" data-ride="carousel" id="prod_carousel">
+ 	<ol class="carousel-indicators">
+ 		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+ 		<li data-target="#myCarousel" data-slide-to="1"></li>
+ 		<li data-target="#myCarousel" data-slide-to="2"></li>
+ 		<li data-target="#myCarousel" data-slide-to="3"></li>
+ 		<li data-target="#myCarousel" data-slide-to="4"></li>
+ 		<li data-target="#myCarousel" data-slide-to="5"></li>
+ 		<li data-target="#myCarousel" data-slide-to="6"></li>
+    </ol>
+ 		<div class="carousel-inner">
+ 			<div class="carousel-item active">
+ 				<img src="/images/IQ subsidiaries/1.png">
+ 			</div>
+ 			<div class="carousel-item">
+ 				<img src="/images/IQ subsidiaries/2.png">
+ 			</div>
+ 			<div class="carousel-item">
+ 				<img src="/images/IQ subsidiaries/3.png">
+ 			</div>
+ 			<div class="carousel-item">
+ 				<img src="/images/IQ subsidiaries/4.png">
+ 			</div>
+ 			<div class="carousel-item">
+ 				<img src="/images/IQ subsidiaries/5.png">
+ 			</div>
+ 			<div class="carousel-item">
+ 				<img src="/images/IQ subsidiaries/6.png">
+ 			</div>
+ 			<div class="carousel-item">
+ 				<img src="/images/IQ subsidiaries/7.png">
+ 			</div>
+ 		</div>
+ 	
+ </div>
+	</div><br>
+	<div class="intro_text">
+	<h6 class="sub_heading" style="color: #fffff0">select products by category</h6>
+	</div>
+<div class="categories">
+		{{#if cat.length}}
+		{{#each cat}}
+	    <button style="padding: 0;margin:0;border:none;"  onclick="products({{this._id}})">
+		<div class="categories_card" >
+		    <p class="lead">{{this.Name}}</p>
+		 </div>
+	    </button>
+		{{/each}}
+		{{else}}
+		<br><br>
+		 <h4 style="text-align: center;">NO CATEGORIES AVAILABLE FOR OW</h4>
+		{{/if}}
+</div>
+
+</div>
+<script>
+	function products(name){
+		$.get(name, function(data, status){
+			alert("Data: " + data + "\nStatus: " + status);
+		});
+	}
+</script

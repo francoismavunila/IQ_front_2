@@ -1,0 +1,35 @@
+ <h2 style="text-align:center;" class="spaceFromNav moreSpace" >life changing programs</h2><br>
+ <div style="text-align: center;">
+	 <h5>Welcome {{name}} {{surname}} </h5>
+ </div>
+<div id="program_cards_container">
+	{{#if content.length}}
+		{{#each content}}
+         
+		<a href="/lessons?prog_name={{this.Name}}&cat={{this.Category}}&prog_img={{this.Program_image}}">
+			<div class="program_cards">
+				<div class="program_cards_image">
+					<img src="{{this.Program_image}}" alt="program image here">
+				</div>
+				<div class="program_cards_head">
+			     <a  class="lead"> {{this.Name}}</a><br>
+			     <i class="fas fa-dot-circle" style="color:green;"><span style="color:#000000;font-weight: normal;font-style: italic;">available</span></i>
+	            </div>
+                 <div id="overlay" style="display: none;" class="overlay">
+		        </div>
+			   <div class="more_card" id="{{this.id}}" >
+			   	   <button type="button" style="color: #ffffff;float: right;" id="close_form" name="{{this.id}}" onclick="dismForm(this.name)">&times;</button><br>
+				  <p> <span class="titles">Title : </span>{{this.Name}}</p>	
+				  <hr style="background-color: #333333">
+				  <p class="titles">description :</p>  
+				  {{{this.Description}}}
+				  <hr style="background-color: #333333">
+				  <p><span class="titles">Price:</span> ${{this.price}}</p>
+
+			   </div>
+	        <button style="border-radius: 0"  name="{{this.id}}" onclick="displayForm(this.name)">more</button>
+		  </div>
+		</a>    
+		{{/each}}
+	{{/if}}
+    </div>

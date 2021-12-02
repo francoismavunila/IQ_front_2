@@ -1,0 +1,59 @@
+
+
+		<div class="main_sub_container" id="profile_background">
+           <br>
+           <br><br>
+		    <table>
+		    	<tr>
+		    		<td><p class="lead">NAME </p></td>
+                    {{#if name }}
+		              <td><p class="user_data">{{id}}</p></td>
+					{{else}}
+		                 <td><p class="user_data"  style="color: #ff0000">Not specified</p></td>
+					{{/if}}
+		    	</tr>
+		    	<tr>
+		    		<td><p class="lead">SURNAME </p></td>
+		    		{{#if surname }}
+		              <td><p class="user_data">{{surname}}</p></td>
+					{{else}}
+		                 <td><p class="user_data"  style="color: #ff0000">Not specified</p></td>
+					{{/if}}
+		    	</tr>
+		    	<tr>
+		    		<td><p class="lead">DEPARTMENT </p></td>
+		    		 {{#if department }}
+		              <td><p class="user_data">{{department}}</p></td>
+					{{else}}
+		                 <td><p class="user_data"  style="color: #ff0000">Not specified</p></td>
+					{{/if}}		    	
+				</tr>
+		    	<tr>
+		    		<td><p class="lead">EMAIL ADDRESS </p></td>
+		    		 {{#if Email }}
+		              <td><p class="user_data">{{Email}}</p></td>
+					{{else}}
+		              <td><p class="user_data"  style="color: #ff0000">Not specified</p></td>
+					{{/if}}
+		    	</tr>
+		    	<tr>
+		    		<td><p class="lead">CELL NUMBER</p></td>
+		    		 {{#if cell}}
+		              <td><p class="user_data">{{cell}}</p></td>
+					{{else}}
+		               <td><p class="user_data"  style="color: #ff0000">Not specified</p></td>
+					{{/if}}
+		    	</tr>
+		    </table>
+		    <br>
+		    <div class="about">
+		    	 <h3 style="font-family: georgia, serif;">ABOUT</h3><br>
+		    {{#if cell}}
+		              <p  class="user_data" >{{{about}}}</p>
+					{{else}}
+		              <p class="user_data"  style="color: #ff0000">WRITE A SHORT MOTIVATING STORY ABOUT YOU , YOUR CAREER WITH REGARDS TO YOUR DEPARTMENT , AND YOUR GOALS</p>
+					{{/if}}
+		    </div>
+		   
+		</div>
+		

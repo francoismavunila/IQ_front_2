@@ -1,0 +1,48 @@
+<div class="col-sm-12 col-md-12 col-lg-10 column_2" >
+	<button style="margin : 20px"><a href="/admin/departments">back</a></button>
+	<br>
+	
+     <form  action="/admin/department/edit" name="registration" id="edit_form" onsubmit="return validation()" method="post" >
+   	       {{#if errors.length}}
+			{{#each errors}}
+			<div class="alert">
+				<span class="cls_btn" onclick="this.parentElement.style.display='none';">&times;</span>
+				<span class="alert_msg">{{this}}</span>
+			</div>
+			<br>
+			{{/each}}
+			{{/if}}
+			<div >
+			<label for="department name" class="lead">department name</label>
+		    <input id="dname" type="text" value="{{dep_name}}" placeholder="Enter department name" name="dname">	
+			</div>
+			<div >
+			<label for="description" class="lead">description</label>
+		    <textarea type="text" name="description" rows="8" class="input_area"  placeholder="what is it about">{{des}}</textarea>
+		    <script type="text/javascript">CKEDITOR.replace('description');</script>	
+			</div>
+			<div >
+			<label for="goals" class="lead">Goals</label>
+		    <textarea type="text"  name="goals" rows="8" class="input_area"  placeholder="what are the departmental goals">{{goal}}</textarea>
+		    <script type="text/javascript">CKEDITOR.replace('goals');</script>	
+			</div>
+			<div >
+
+	        <input type="hidden" name="id" value="{{id}}">
+	      
+		    <label for="head" class="lead"> Choose the department head</label>
+			<select name="head">
+				<option value="{{head}}">{{head}}</option>
+		      
+				{{#each admin}}
+				  <option  value="{{this}}">
+	                {{this}}
+				  </option>
+				{{/each}}
+			</select>
+			</div>
+			<button type="submit">submit</button>
+		    
+	</form>
+
+</div>

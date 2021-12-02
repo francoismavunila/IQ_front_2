@@ -1,0 +1,286 @@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.3/handlebars.min.js"></script>
+
+	<div class="banner_img_container">
+		 <img src="/images/carousel.jpg" id="banner_img" >
+		      <p>Whats trending</p>
+				<div class="carousel_container" id="container">
+					<div class="carousel_item" id="1" >
+						<p>Consciousness Development</p>
+					</div>
+					<div class="carousel_item" id="2" >
+					    <p>Self-Development</p>
+					</div>
+					<div class="carousel_item" id="3" >
+						<p>Emotional Intelligence</p>
+				    </div>
+				    <div class="carousel_item" id="4" >
+						<p>Love</p>
+				    </div>
+				    <div class="carousel_item" id="5" >
+						<p> Entrepreneurship</p>
+				    </div>
+				     <div class="carousel_item" id="5" >
+						<p> Leadership</p>
+				    </div>
+				    <div class="carousel_item" id="5" >
+						<p>Mental Wellness </p>
+				    </div>
+				    <div class="carousel_item" id="5" >
+						<p> Fitness</p>
+				    </div>
+			   </div>
+	    
+	</div>
+
+<!---spacing--->
+<div class="spaceBetween"></div>
+<!---end of spacing--->
+
+<div class="About">
+	<h1>The Mandate</h1>
+<div id="About">
+	<div id="about1">
+		<video autoplay loop>
+			<source src="/vids/program.mp4" type="video/mp4">
+		</video>
+	</div>
+	<div id="about2">
+		<div style="height: 100%;width: 100%">
+		<p><span class="statement-head highlight">Infinite Quo</span> is an <span class="highlight" >online school</span> of exponential growth whose main thrust is to <span class="highlight" >aid people to live holistically abundant lives</span>, thus abundance in all facets of life: financial, spiritual, social, psychological and physical facets. </p>	
+        </div>
+	</div>
+</div>
+
+</div>
+
+<!---spacing--->
+<div class="spaceBetween"></div>
+<!---end of spacing--->
+
+<div style="text-align: center;">
+<h1>Our Subsidiaries and Brands</h1>
+	<!---spacing--->
+	<div class="spaceInbetween"></div>
+	<!---end of spacing--->
+<div class="subsidiary">
+ <div class="clarion">
+ 	<h4>What is the <span><a href="/about/#clarion"  style="font-weight: bold; color: darkblue;font-size: 1.2rem;">Clarion Call</a></span>?</h4>
+	<!---spacing--->
+	<div class="spaceInbetween"></div>
+	<!---end of spacing--->
+ 	<img src="/images/IQ subsidiaries/CC.png" alt="clarion call">
+	 <!---spacing--->
+	<div class="spaceInbetween"></div>
+	<!---end of spacing--->
+ 	<p style="letter-spacing: 0.0625rem;padding-left:0.5rem">It is the purpose every man is born for, “to add value to him and the world”. THE CLARION CALL<span id="dots">...</span><span id="more">as an organization is obligated to help every man and woman in the world to answer this call, through making them aware of such a purpose and how they can answer to it</span></p><button onclick="readMore()" type="button" class="btn btn-default" id="myBtn" style="display: inline;">read more</button>
+ 	
+ 	<script type="text/javascript">
+ 		function readMore(){
+ 			var dots = document.getElementById("dots");
+ 			var moreText = document.getElementById("more");
+ 			var btnText = document.getElementById("myBtn");
+ 			if(dots.style.display == "none"){
+ 				dots.style.display="inline";
+ 				btnText.innerHTML = "read more";
+ 				moreText.style.display="none";
+ 			}else{
+	 			dots.style.display="none";
+ 				btnText.innerHTML = "read less";
+ 				moreText.style.display="inline";	
+ 			}
+ 		}
+ 	</script>
+ 	 <hr style="color: #808000; width: 50%; font-weight: bolder;">
+ </div>
+   <!---spacing--->
+	<div class="spaceInbetween"></div>
+	<!---end of spacing--->
+ <div id="myCarousel" class="carousel slide" data-ride="carousel">
+	
+ 	<h4>IQ Subsidiaries</h4>
+	 <!---spacing--->
+	<div class="spaceInbetween"></div>
+	<!---end of spacing--->
+ 	<ol class="carousel-indicators">
+ 		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+ 		<li data-target="#myCarousel" data-slide-to="1"></li>
+ 		<li data-target="#myCarousel" data-slide-to="2"></li>
+ 		<li data-target="#myCarousel" data-slide-to="3"></li>
+ 		<li data-target="#myCarousel" data-slide-to="4"></li>
+ 		<li data-target="#myCarousel" data-slide-to="5"></li>
+ 		<li data-target="#myCarousel" data-slide-to="6"></li>
+    </ol>
+ 		<div class="carousel-inner">
+ 			<div class="carousel-item active">
+ 				<img src="/images/IQ subsidiaries/1.png">
+ 			</div>
+ 			<div class="carousel-item">
+ 				<img src="/images/IQ subsidiaries/2.png">
+ 			</div>
+ 			<div class="carousel-item">
+ 				<img src="/images/IQ subsidiaries/3.png">
+ 			</div>
+ 			<div class="carousel-item">
+ 				<img src="/images/IQ subsidiaries/4.png">
+ 			</div>
+ 			<div class="carousel-item">
+ 				<img src="/images/IQ subsidiaries/5.png">
+ 			</div>
+ 			<div class="carousel-item">
+ 				<img src="/images/IQ subsidiaries/6.png">
+ 			</div>
+ 			<div class="carousel-item">
+ 				<img src="/images/IQ subsidiaries/7.png">
+ 			</div>
+ 		</div>
+ 	
+ </div>
+</div>
+</div>
+
+<!---spacing--->
+<div class="spaceBetween"></div>
+<!---end of spacing--->
+
+<div class="Our_products" >
+<h1>OUR PRODUCTS</h1>
+
+<button>Visit Our library</button>
+</div>
+ 
+<!---spacing--->
+<div class="spaceBetween"></div>
+<!---end of spacing---> 
+
+<div class="Programs" onload="getPrograms()">
+	<h2>Life Changing Programs</h2>
+	<button onclick="getProg()">click</button>
+	<script id="image-template" type="text/x-handlebars-template">
+	<p>{{temp}}</p>
+	
+	</script>
+	<div class="here">
+     <p lass="here1">i am</p>
+	</div>
+	<div class="images-card"> 
+		<img src="/images/PROGRAMS.png">	
+	</div>
+	<a href="http://localhost:3001/programs"><button>visit our Programs</button></a>
+</div>
+
+</div>
+
+<!---spacing--->
+<div class="spaceBetween"></div>
+<!---end of spacing--->
+
+<div class="TEAM">
+	<h3>MEET THE TEAM</h3>
+	<div class="images-card"> 
+			<p>hgfdfghj</p>
+	</div>
+
+</div><br>
+<!---spacing--->
+<div class="spaceBetween"></div>
+<!---end of spacing--->
+
+<script type="text/javascript">
+	const tablets = window.matchMedia("(min-width: 768px)");
+	const laptops = window.matchMedia("(min-width: 992px)");
+	var index = 1 ;
+	var subs_item = 50;
+	const speed = 5;
+	const numberOfSlides = 5;
+	const container = document.getElementById('container');
+	//const subs_container = document.getElementById('subs_container');
+	const scrollWidth = container.offsetWidth;
+	//const subs_scrollWidth = subs_container.offsetWidth;
+	//const subs_count = subs_container.childElementCount;
+	//console.log(subs_count);
+
+	setInterval(function(){
+      //var subs_itm = document.getElementById(subs_item);
+     // const subs_scrollWidth_2 = subs_itm.offsetWidth;
+      container.scrollBy(scrollWidth , 0);
+      if(tablets.matches){
+      	if(subs_count < 4){
+          // subs_container.scrollBy(0,0);
+
+
+      	}else{
+      	// subs_container.scrollBy({top : 0, left: subs_scrollWidth_2  ,behavior: "smooth"});	
+      	 // subs_itm.parentNode.insertBefore(subs_itm , subs_container.lastChild);
+      	}
+      }
+      else{
+      //	subs_container.scrollBy({top : 0, left: subs_scrollWidth  ,behavior: "smooth"});
+      	  //subs_itm.parentNode.insertBefore(subs_itm , subs_container.lastChild);
+      }
+      
+      var div = document.getElementById(index);
+      div.parentNode.insertBefore(div , container.lastChild);
+     
+       if(index == 5){
+      	index=1;
+      }else{
+      	   index++;
+      }
+      /*if(subs_item == 52){
+      	subs_item=50;
+      }
+      else{
+      	subs_item++;
+      }*/
+	},7000)
+
+      function handlePrograms() {
+        if (httpRequest.readyState === XMLHttpRequest.DONE) {
+        if (httpRequest.status === 200) {
+            var response = JSON.parse(httpRequest.responseText);
+            console.log(response);
+        } else {
+            alert('There was a problem with the request.');
+        }
+        }
+    }
+
+	function getPrograms(){
+        httpRequest = new XMLHttpRequest();
+
+        if (!httpRequest) {
+        console.log("cannot create an XMLHttpRequest");
+        return false;
+        }
+        httpRequest.onreadystatechange = handlePrograms;
+        httpRequest.open('GET', '/ourprograms');
+        httpRequest.send();
+    }
+</script>
+
+<script>
+	function getProg(){
+		var data1 = { 
+    'items': [
+        {"id":"2", "comment": "wwwwwww"}, 
+        {"id":"3", "comment": "yyyyyyy"}
+    ]
+};
+    $.ajax({
+      type: 'GET',
+      url: '/ourprograms',
+      success: function (data) {
+        console.log(data);
+        var source   = $("#image-template").html();
+        var template = Handlebars.compile(source);
+        var html = template(data1);
+		console.log(html);
+        // you will now have some html that you will need to insert into your page
+		$('.here').empty().append(html);
+      }
+    });
+	}
+</script>
+
+
+

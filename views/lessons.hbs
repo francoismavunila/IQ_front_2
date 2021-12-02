@@ -1,0 +1,19 @@
+<div class="main_sub_container spaceFromNav " id="main_sub">
+        <h1 style="text-align:center;">{{prog_name}}</h1>
+
+	<div class="categories">
+		{{#if available.length}}
+		{{#each available}}
+		<div class="program_cards">
+				<div class="program_cards_image">
+					<img src="{{../prog_image}}" alt="program image here">
+				</div>
+		  <p><a href="/program_content?prog_name={{../prog_name}}&cat_name={{../cat_name}}&less_name={{this.Name}}" class="lead" style="color:antiquewhite;"> {{this.Name}}</a><br></p> 
+		</div>
+	   
+		{{/each}}
+	
+		{{/if}}
+      </div>
+	
+</div>

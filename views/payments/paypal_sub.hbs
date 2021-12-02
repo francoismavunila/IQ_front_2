@@ -1,0 +1,41 @@
+<div class="spaceFromNav" >
+
+  <h1>subscribe</h1>
+
+  <script
+       src="https://www.paypal.com/sdk/js?client-id=ARxo1slqoFzPlTECeuhG9NmcqNxfQ5nfovsojfuZompOXWE4LLEDL66Br_xARnKdQ6gn0U-Cnfxu146o&vault=true&intent=subscription">
+  </script>
+
+  <div id="paypal-button-container"></div>
+
+  <script>
+    paypal.Buttons({
+
+  createSubscription: function(data, actions) {
+
+    return actions.subscription.create({
+
+      'plan_id': '{{plan_id}}'
+
+    });
+
+  },
+
+
+  onApprove: function(data, actions) {
+     alert(data);
+      console.log(data);
+     $.post('/subscriber/paypal/success',{"subscriptionID":data.subscriptionID,"facilitatorAccessToken":'{{access_token}}'},function(){
+              
+          })
+
+  }
+
+
+}).render('#paypal-button-container');
+  </script>
+</div>
+
+
+
+

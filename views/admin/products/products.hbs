@@ -1,0 +1,37 @@
+
+<div class="main_sub_container">
+	 {{#if errors.length}}
+			{{#each errors}}
+			<div class="alert">
+				<span class="cls_btn" onclick="this.parentElement.style.display='none';">&times;</span>
+				<span class="alert_msg">{{this}}</span>
+			</div>
+			<br>
+			{{/each}}
+	 {{/if}}
+
+	<a href="/admin/products/add" ><button style="float: right;"> add products</button></a> 
+	<br><br>
+	<div class="d-flex justify-content-around flex-wrap" id="program_cards_container">
+	{{#if prod.length}}
+		{{#each prod}}
+		<a href="/admin/programs/program_content/{{this.Name}}">
+			<div class="program_cards">
+				<div class="program_cards_image">
+					<img src="{{this.Product_image}}" alt="program image here">
+				</div>
+				<div class="program_cards_head">
+			     <a href="/admin/courses/category/{{this._id}}" class="lead"> {{this.Name}}</a>
+	            </div>
+
+	        <a href="/admin/products/edit/{{this._id}}"><button>edit</button></a>
+		  	<a href="/admin/products/delete/{{this._id}}"><button id="delete_btn">delete</button></a>
+		  </div>
+		</a>    
+		{{/each}}
+	{{else}}
+	<br><br>
+	 <h4 style="text-align: center;">NO PRODUCTS AVAILABLE , CLICK THE ADD BUTTON TO ADD PRODUCTS</h4>
+	{{/if}}
+
+	</div>

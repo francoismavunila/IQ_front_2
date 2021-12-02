@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{title}}</title>
+	<meta name="viewport" content="width=device-width , initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/crop/css/fineCrop.css">
+
+</head>
+<body>
+
+<script type="text/javascript" src="/stylesheets/bootstrap/js/jquery.js"></script>
+<script type="text/javascript" src="/stylesheets/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="/javascripts/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="/stylesheets/crop/js/fineCrop2.js"></script>
+
+<!---------NAVIGATION BAR----------->
+<nav class="navbar">
+
+		<!----navlogo------->
+
+	        <img src="/images/logo/humburger.png" height="15rem" style="padding: 0;margin: 0 ; " alt="toggle"  id="sidebarToggler" onclick="bringSide()">
+			<img class="square-circular" src="/images/logo/LOGO1-nobg.png" alt="CLARIONCALL" class="navbar-logo">
+		    <h2 id="logo-text">Admin Pannel</h2>
+	    	<button style="background-color: black;position: fixed;top: 0.3em;right: 0.3em"><a style="background-color: black; color: white; font-weight: bold;" href="/admin/logout">logout</a></button> 
+        <!--------/navlogo------>
+</nav>
+
+<script type="text/javascript">
+
+	function dismSide(){
+		document.getElementById('sidebar').style.display ='none';
+		document.getElementById('sidebarToggler').style.display ='inline-block';
+	}
+	function bringSide(){
+		document.getElementById('sidebar').style.display ='inline-block';
+		document.getElementById('sidebarToggler').style.display ='none';
+	}
+</script>
+
+
+<!----------side navbar--------->
+<div class="main_container" style="padding: 0;width: 100%">
+		<div id="sidebar">
+		<span class="cls_btn" id="close_x" onclick="dismSide()">&times;</span>
+			<div class="sidebar-header" >
+				
+	      {{#if prof_image }}
+	              <img src="/admin/{{user_id}}/{{prof_image}}" id="logged" alt="couldnt load user image">
+	              
+	                
+				{{else}}
+	              <img src="/images/users/not_logged.png" id="logged">
+
+	            
+				{{/if}}
+				<h2>{{name}}</h2>
+
+			</div>
+      <div class="sidebar-body">
+		<ul class="list-unstyled components">
+		    <li class="active">
+				<a href="#myprofile" data-toggle="collapse"  aria-expanded="false" class="dropdown-toggle">My Profile</a>
+					<ul class="collapse list-unstyled" id="myprofile">
+						<li>
+							<a href="/admin/dashboard">View My Profile</a>
+						</li>
+						<li>
+							<a href="/admin/edit_profile/{{user_id}}">Edit My Profile</a>
+						</li>
+					</ul>
+					
+			</li>
+			<li class="active">
+				<a href="#adminSub" data-toggle="collapse"  aria-expanded="false" class="dropdown-toggle">Admin</a>
+					<ul class="collapse list-unstyled" id="adminSub">
+						<li>
+							<a href="/admin/users">View all admin</a>
+						</li>
+						<li>
+							<a href="/admin/registration">Add Admin</a>
+						</li>
+					</ul>
+				
+			</li>
+             	<li class="active">
+				<a href="#coursesSub" data-toggle="collapse"  aria-expanded="false" class="dropdown-toggle">Programs</a>
+					<ul class="collapse list-unstyled" id="coursesSub">
+						<li>
+							<a href="/admin/programs/Categories">Categories</a>
+						</li>
+						<li>
+							<a href="/admin/registration">free</a>
+						</li>
+					</ul>
+				
+			</li>
+			<li class="active">
+				<a href="/admin/departments">departments</a>
+			</li>
+			<li class="active">
+		    	<a href="/admin/products">Products</a>
+		    </li>
+            <li class="active">
+		    	<a href="#">Articles</a>
+		    </li>
+		    <li class="active">
+		    	<a href="/admin/Videos/upload">Videos</a>
+		    </li>
+		    <li class="active">
+		    	<a href="#">Audios</a>
+		    </li>
+		    <li class="active">
+		    	<a href="#">Quotes</a>
+		    </li>
+		  
+		</ul>
+	   </div>	
+   </div>
+   	{{{body}}}
+</div>
+<!-------
+<script type="text/javascript">
+	var max_width = window.matchMedia("(max-width : 992px)");
+	var sidebar = document.getElementById('sidebar');
+
+	if(max_width.matches){
+     //sidebar.style.width = '100vw';
+	}
+	else{
+    divWidth = document.getElementById('sidenav').offsetWidth;
+    console.log(divWidth);
+	sidebar.style.width = divWidth+'px';	
+	}
+  
+   function sidenav(){
+   	if(max_width.matches){
+     //sidebar.style.width = '100vw';
+	}
+	else{
+    divWidth = document.getElementById('sidenav').offsetWidth;
+    console.log(divWidth);
+	sidebar.style.width = divWidth+'px';	
+	}
+   }
+
+</script>
+----->
+
+</body>
+</html>

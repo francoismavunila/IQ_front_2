@@ -1,0 +1,99 @@
+ <h2 style="text-align:center;" class="spaceFromNav moreSpace" >life changing programs</h2><br>
+<div id="program_cards_container">
+	
+	{{#if program_available.length}}
+		{{#each program_available}}
+		<a href="/lessons?prog_name={{this.Name}}&cat={{../cat_name}}&prog_img={{this.Program_image}}">
+			<div class="program_cards">
+				<div class="program_cards_image">
+					<img src="{{this.Program_image}}" alt="program image here">
+				</div>
+				<div class="program_cards_head">
+			     <a  class="lead"> {{this.Name}}</a><br>
+			     <i class="fas fa-dot-circle" style="color:green;"><span style="color:#000000;font-weight: normal;font-style: italic;">available</span></i>
+	            </div>
+                 <div id="overlay" style="display: none;" class="overlay">
+		        </div>
+			   <div class="more_card" id="{{this._id}}" >
+			   	   <button type="button" style="color: #ffffff;float: right;" id="close_form" name="{{this._id}}" onclick="dismForm(this.name)">&times;</button><br>
+				  <p> <span class="titles">Title : </span>{{this.Name}}</p>	
+				  <hr style="background-color: #333333">
+				  <p class="titles">description :</p>  
+				  {{{this.Description}}}
+				  <hr style="background-color: #333333">
+				  <p><span class="titles">Price:</span> ${{this.Price}}</p>
+
+			   </div>
+	        <button style="border-radius: 0"  name="{{this._id}}" onclick="displayForm(this.name)">more</button>
+		  </div>
+		</a>    
+		{{/each}}
+	{{else}}
+	<br><br>
+	 <h4 style="text-align: center;">NO PROGRAMS AVAILABLE FOR NOW</h4>
+	{{/if}}
+</div>
+<hr>
+ <h2 style="text-align:center;">Upcoming Programs</h2><br>
+<div  id="program_cards_container">
+	
+   	<br>
+	{{#if program_unAvailable.length}}
+		{{#each program_unAvailable}}
+		 
+			<div class="program_cards" onclick="unAvailable()">
+				<div class="program_cards_image">
+					<img src="{{this.Program_image}}" alt="program image here">
+				</div>
+				<div class="program_cards_head">
+			     <a href="" class="lead"> {{this.Name}}</a><br>
+			     <i class="fas fa-dot-circle" style="color:red;padding-top: 0.5rem;"><span style="color:#000000;font-weight: normal;font-style: italic;">coming on:<br> <p style="font-weight: bold;font-style: italic;">{{this.Date}}</p></span></i> 
+	            </div>
+                 <div id="overlay" style="display: none;" class="overlay" >
+		         </div>
+			   <div class="more_card" id="{{this._id}}" >
+			   	   <button type="button" style="color: #ffffff;float: right;" id="close_form" name="{{this._id}}" onclick="dismForm(this.name)">&times;</button><br>
+				  <p> <span class="titles">Title : </span>{{this.Name}}</p>	
+				  <hr style="background-color: #333333">
+				  <p class="titles">description :</p>  
+				  {{{this.Description}}}
+				  <hr style="background-color: #333333">
+				  <p><span class="titles">Price:</span> ${{this.Price}}</p>
+
+			   </div>
+	        <button style="border-radius: 0"  name="{{this._id}}" onclick="displayForm(this.name)">more</button>
+		  </div>
+		   
+		{{/each}}
+	{{else}}
+	<br><br>
+	 <h4 style="text-align: center;">section for upcoming programs</h4>
+	{{/if}}
+   </div>
+   <div style="display: none;top: 0;position: fixed;background-color: #222222;height: 100vh; width: 40%;height : 20%;top: 35%;left: 30%;text-align: center;" id="unAvailable">
+   	   <button type="button" style="color: #ffffff;float: right;" id="close_form" name="{{this._id}}" onclick="dis(this.name)">&times;</button><br>
+   	 <h2 style="color:#ffffff">Program coming soon</h2>
+   </div>
+    
+<script type="text/javascript">
+	    function dis(){
+	     document.getElementById("unAvailable").style.display="none";	
+	    }
+	    function unAvailable(){
+         document.getElementById("unAvailable").style.display="block";
+	    }
+	  	function displayForm(id){
+      		document.getElementById("overlay").style.display="block";
+      		console.log(id);
+      		var more = document.getElementById(id);
+      		more.style.display="block";
+      	}
+      	function dismForm(id){
+      		document.getElementById("overlay").style.display="none";
+      	 document.getElementById(id).style.display="none";	
+      	}
+</script>
+
+
+   
+		

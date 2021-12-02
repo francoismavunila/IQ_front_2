@@ -1,0 +1,63 @@
+<div class="form_container_2" >
+<form  action="/admin/activate" name="registration" onsubmit="return validation()" method="post" id="form_container_1">
+	<div class="login_image_container">
+		<img src="/images/users/not_logged.png" alt="avatar" class="login_image">
+	</div>
+	
+	<div class="input">
+    <label for="Email"></label>
+    <input id="email" type="email" name="email" placeholder="Enter your email">	
+    </div>
+
+
+	<div class="input">
+	<label for="Create Password"></label>
+    <input id="password" type="password" name="password" placeholder="Enter your password here">	
+	</div>
+	<!---<div class="input">
+    <progress value="0" max="100" id="gauge">
+	</div>--->
+	<div class="input">
+	<label for="Confirm Password"></label>
+    <input id="cpword" type="password" name="password_confirm" placeholder="Enter your password again">	
+	</div>
+    <button type="submit">submit</button>
+    <br>
+    <button type="button" style="margin: 10px">login instead</button>	
+</form>	
+
+</div>
+
+<script type="text/javascript">
+	function validation(){
+	
+	var nme = document.getElementById('name').value;
+	var sur = document.getElementById('surname').value;
+	var pword = document.getElementById('password').value;
+	var cpword = document.getElementById('cpword').value;
+	var mail = document.getElementById('email').value;
+    
+
+	if(nme=="" || sur=="" || pword=="" || cpword=="" || mail==""){
+
+		alert('registration failed , makesure all fields are filled');
+		return false;
+	}
+    if(uname.length<3){
+    	alert('user name must have a length greater tha 2 letters');
+    	return false;
+    }
+    if(pword.length<8){
+    	alert('password must have more than 8 letters');
+    	return false ;
+    }
+    if(pword.length>14){
+    	alert('maximum password length should be 14!!!!!!!');
+    	return false;
+    }
+    if(pword!=cpword){
+    	alert('passwords do no match!!!');
+    }
+
+	}
+</script>

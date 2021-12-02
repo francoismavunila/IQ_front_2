@@ -1,0 +1,28 @@
+<div class="col-sm-10 c0l-md-10  col-lg-10 column_2">
+	<form action="/admin/videos/upload" method="post" class="full_form" enctype="multipart/form-data">
+       
+        <div>
+			<label class="lead">video Name</label><br>
+			<input type="input" name="vid_name">
+		</div>
+		
+
+		<div>
+			<label class="lead">add video</label><br>
+			<input type="file" name="video">
+		</div>
+        
+		<div>
+			<label class="lead">add thumbnail</label><br>
+			<input type="file" name="thumbnail">
+		</div>
+	   
+		<div>
+			<label class="lead">video description</label><br>
+			<textarea name="vid_description"></textarea>
+			<script type="text/javascript">CKEDITOR.replace('vid_description');</script>
+		</div>
+		  
+		<button type="submit">submit</button>
+	</form>
+</div>

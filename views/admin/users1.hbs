@@ -1,0 +1,127 @@
+<div class="main_sub_container d-flex justify-content-around flex-wrap column_2" id="cards">
+
+
+  
+	{{#each users}}
+	<div style="text-align: center;" class="admin_card">
+		
+		
+	    {{#if this.Image}}
+      <img src="/admin/{{this._id}}/{{this.Image}}" class="card_img" height="200"  alt="user image failed to load">
+      {{else}}
+      <img src="/images/users/not_logged.png" class="card_img" height="250"  alt="user image">
+      {{/if}}
+      <button class ="card_btn" id="{{this.Email}}" onclick="profile(this.id)">View Profile</button>
+      <div >
+			<h4 style="font-family: Monaco , Monospace;font-weight: bolder;margin: 5px;">{{this.Name}}</h4>
+			<p style="font-family: Monaco , Monospace;font-size: 18px;margin: 5px; ">{{this.Position}}</p>
+       </div>
+      
+      
+
+				<script type="text/javascript">
+					var images = document.getElementsByClassName('card_img');
+					var body  = document.getElementsByClassName('admin_card');
+					var width = images[images.length-1].offsetWidth+5;
+					body[body.length-1].style.width = width+"px" ;
+					
+				</script>	
+		      
+            
+		</div>
+	
+	{{/each}}
+              <script type="text/javascript">
+					var cards  = document.getElementsByClassName('admin_card');
+					
+                   console.log(cards);
+					var div_height = cards[0].offsetHeight;
+					
+					    for(var i = 0 ; i<cards.length; i++){
+					    	if(cards[i].offsetHeight>div_height){
+						     	div_height = cards[i].offsetHeight;
+						     	console.log(div_height);
+						     }
+					    }
+
+					    for(var i = 0 ; i<cards.length; i++){
+					       cards[i].style.height = div_height+"px" ;
+					    }
+						
+						
+				</script>
+ </div>
+  {{#each users}}
+  
+  <div class="pro" id="{{this.Email}}id">
+  	<button style="background-color: black"><a style="font-weight: bold;background-color: black ; color: white" href="/admin/users/edit/{{this._id}}">edit admin</a></button>
+  	<button class ="card_btn" id="{{this.Email}}i"  style="float: right;margin: 10px;background-color: red;"> <a  href="/admin/users/delete/{{this._id}}" style="color: black;background-color: red;font-weight: bold;" onclick="return confirm('are you sure you want to remove {{this.Name}}')">Remove User</a></button>
+  	<button class ="card_btn" id="{{this.Email}}"  style="float: right;margin: 10px;"> <a style="font-weight: bold;color: white" href="/admin/users"> Done</a></button>
+  	<br><br>
+       	<label class="lead">Name</label>
+       	<p class="user_data">{{this.Name}}</p>
+        <label class="lead">Surname</label>
+       	<p class="user_data">{{this.Surname}}</p>
+       	<label class="lead">Department</label>
+       	<p class="user_data">{{this.Department}}</p>
+       	<label class="lead">Email</label>
+       	<p class="user_data">{{this.Email}}</p>
+       	<label class="lead">Admin Previledge</label>
+       	<p class="user_data">{{this.AdminPower}}</p>
+       	<label class="lead">CellNumber</label>
+       	<p class="user_data">{{this.CellNumber}}</p>
+       	<label class="lead">About</label>
+       	<p class="user_data">{{this.About}}</p>
+       	<label class="lead">Position</label>
+       	<p class="user_data">{{this.Position}}</p>
+       </div>
+ {{/each}}
+
+  
+</div>
+      <script type="text/javascript">
+      	function profile(btn_id){
+				var prof = document.getElementById(btn_id).parentElement;
+				var user_info = document.getElementById(btn_id+"id");
+				
+
+				prof.className = '';
+				prof.id="display_element";
+				
+				var elements = document.getElementsByClassName('admin_card');
+				 for(var i = 0 ; i<elements.length; i++){
+		       elements[i].style.display = 'none' ;
+		        }
+
+               var children = prof.childNodes;
+               console.log(children);
+               children[3].style.display='none';
+               children[5].style.display="none";
+               children[1].style.height="auto";
+               children[1].style.width="500px";
+               user_info.className="col-sm-12 col-md-12 col-lg-5 column_2";
+               prof.parentElement.className="col-sm-12 col-md-12 col-lg-5 column_3";
+
+                           
+						};
+			function done(btn_id){
+               var user_info = document.getElementById(btn_id+"d") ;
+               user_info.className="pro";
+
+               var prof = document.getElementById('display_element');
+               prof.className="admin_card";
+               var children = prof.childNodes;
+               children[3].style.display='block';
+               children[5].style.display="block";
+               children[1].style.height="250px";
+               prof.parentElement.className="col-sm-12 col-md-12 col-lg-10 column_3 d-flex justify-content-between flex-wrap ";
+
+
+               var elements = document.getElementsByClassName('admin_card');
+				 for(var i = 0 ; i<elements.length; i++){
+		       elements[i].style.display = ' block' ;
+		        }
+
+			}
+					
+      </script>

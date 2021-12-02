@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	<meta charset="utf-8">
+	<meta name="keywords" content="Infinity Quo , moivation , Life coaching">
+	<meta name="author" content="Francois Mavunila">
+	<meta name="viewport" content="width=device-width , initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/mainStyle.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/about.css">
+
+</head>
+<body>
+<script type="text/javascript" src="/stylesheets/bootstrap/js/jquery.js"></script>
+<script type="text/javascript" src="/stylesheets/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" src="/javascripts/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="/stylesheets/crop/js/fineCrop.js"></script>
+<script type="text/javascript">
+
+	function dismSide(){
+		document.getElementById('menu_id').style.display ='none';
+		document.getElementById('logo_container').style.display ='inline-block';
+	}
+	function bringSide(){
+		document.getElementById('menu_id').style.display ='inline-block';
+		document.getElementById('logo_container').style.display ='none';
+	}
+</script>
+
+<nav class="nav_bar">
+	<button onclick="bringSide()"  id="toggle_btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu">
+			<span ><img src="/images/logo/humburger.png" height="20rem" alt="menu"></span>
+	</button>
+	<div class="nav_logo_container" id="logo_container">
+	<img class="nav_logo" src="/images/logo/LOGO1-nobg.png" alt="Infinity Quo">
+	</div>
+	
+       	
+			<button type="button" class="btn btn-default"  style="float:right;margin-top:1.2rem;" >login</button>
+		
+		
+		<div class="menu" id="menu_id">
+		  <span class="cls_btn" id="close_x" onclick="dismSide()">&times;</span>
+		  <div  id="side_logo_container">
+			<img id="side_logo_img" src="/images/logo/LOGO1-nobg.png" alt="Infinity Quo">
+		  </div>
+		  <div class="navbar_list">
+				<a href="/">HOME</a>
+			</div>	
+		 	<div class="navbar_list">
+				<a href="#aboutUs" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">ABOUT US</a>
+				<div id="aboutUs" class="dropdown_area collapse">
+					<p><a href="/about" id="lis">About Us</a></p>
+					<p><a href="/about/#clarion">Clarion Call</a></p>
+					<p><a href="/about/#our-team">Our Team</a></p>
+				</div>
+			</div>
+			<div class="navbar_list"> 
+			    <a href="">CHARTROOM</a>	
+			</div>
+			<div class="navbar_list">
+			    <a href="/programs">PROGRAMS</a>	
+			</div>
+			<div class="navbar_list">
+				<a href="/products">PRODUCTS</a>
+			</div>
+			
+		</div>		
+</nav>
+<main >
+	 {{{body}}}
+</main>
+
+</body>
+</html>

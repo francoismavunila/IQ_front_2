@@ -1,0 +1,38 @@
+<div class="main_sub_container spaceFromNav" style="text-align: center;background-color: #222222">
+	<br>
+	<h1 style="color: #808000">{{prog_name}}</h1><br><br>
+	 {{#each program_cont as |parent|}}
+	     {{#each parent.Youtube as |child|}}
+	        <h4 style="color: #ffffff">video file</h4>
+		    <iframe src="{{child.url}}" width="80%" height="350px"></iframe>
+		 {{/each}}
+		 <br><br>
+		   {{#each parent.Video as |child_vid|}}
+			              {{#if child_vid.url}}
+			               <h4 style="color: #ffffff">Video streaming from server</h4>
+					       <video controls width="80%">
+						    		<source src="/program_content/video/streaming?doc={{parent._id}}&sub={{child_vid._id}}" type="video/mp4">
+						    </video><br>
+						    <a href="/admin/programs/video/delete/?doc={{parent._id}}&sub={{child_vid._id}}"><button>delete</button></a>
+                            {{/if}}
+					       {{/each}}
+					       <br><br>
+			       	
+		{{#each parent.Audio as |child_aud|}}
+		   <h4 style="color: #ffffff">Audio file</h4>	
+		   <audio  controls>
+				<source src="/program_content/audio/streaming?doc={{parent._id}}&sub={{child_aud._id}}" type="audio/mp3">
+			</audio>
+		{{/each}}
+	   
+		   <br><br>
+		<h4 style="color: #ffffff">Articles</h4>
+       {{#each parent.Article as |child_art|}}
+       	  
+           <a href="/program_content/article/streaming?doc={{parent._id}}&sub={{child_art._id}}" download="IQ_Article"><button>download</button></a>
+		   <a target="_blank" title="" href="http://localhost:3001/program_content/article/streaming?doc={{parent._id}}&sub={{child_art._id}}" ><button>read</button></a>
+			<br>
+			<hr>
+         {{/each}}
+	{{/each}}
+</div>
