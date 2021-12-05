@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const passport = require('passport');
 const ensureAuthenticated = require('../config/authentication');
+const sendMail = require('../config/sendmail')
 const {body , validationResult} = require('express-validator');
 const nodemailer = require('nodemailer');
 const fs = require('fs-extra');
@@ -245,9 +246,12 @@ router.get("/program_contents/:id",function(req,res){
       var doc_id = req.query.doc;
       var sub_id = req.query.sub;
 
+      console.log("prog id:"+sub_id);
+
       program_content.findOne({_id : doc_id },function(err ,_prog_cont){
          if(_prog_cont){
             var prog = _prog_cont.Video.id(sub_id);
+            
            // console.log("video url"+prog);
                var fileStat = fs.statSync(prog.url);
                //console.log(fileStat);
@@ -278,6 +282,9 @@ router.get("/program_contents/:id",function(req,res){
                    res.writeHead(206,head);
                    file.pipe(res);
                }else{
+                       console.log(prog);
+                       console.log("herereee");
+                       console.log("sub id :"+sub_id);
                	     var vid_mime = mime.lookup(prog.url);
                	     console.log(vid_mime)
                	     console.log('no range');
@@ -285,6 +292,8 @@ router.get("/program_contents/:id",function(req,res){
 		               	"Content-Length":fileSize,
 		               	"Content-Type" : vid_mime
 	                 });
+                    console.log("url:"+prog.url);
+                    console.log("sub id :"+sub_id);
 	                 fs.createReadStream(prog.url).pipe(res);
                }
                
@@ -371,7 +380,15 @@ router.get("/program_contents/:id",function(req,res){
   });
 
 
-//products
+//emailing 
+router.get('/email',function(req, res){
+   sendMail({
+      email:"mavunila002@gmail.com",
+      subject : "testing email",
+      message : "am testing email here"
+   })
+   res.send('done');
+})
 
 
 module.exports = router;

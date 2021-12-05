@@ -43,6 +43,7 @@
     "youtube-api": "^3.0.1"
   },
   "devDependencies": {
+    "autocannon": "^7.5.0",
     "nodemon": "^2.0.15"
   },
   "nodemonConfig": {
