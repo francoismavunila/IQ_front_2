@@ -10,10 +10,13 @@ const mime = require('mime');
 const html = fs.readFileSync('views/welcome.hbs','utf8');
 const subscriber = require('../../models/subscriber_model');
 const sub_Authenticated = require('../../config/sub_authenticated');
+const genAccess = require('../../config/token_gen');
+const sendMail = require('../../config/sendmail')
 const programs = require('../../models/program_model');
 const cat = require('../../models/program_categories');
 const fetch = require('node-fetch');
 var request = require('request');
+var jwt = require('jsonwebtoken');
 
 const authUrl = "https://api-m.sandbox.paypal.com/v1/oauth2/token";
 const clientIdAndSecret = "ARxo1slqoFzPlTECeuhG9NmcqNxfQ5nfovsojfuZompOXWE4LLEDL66Br_xARnKdQ6gn0U-Cnfxu146o:EDCQ8-cHXfv_a1No4yoYPts4pIeuCN7ssVON9NwM1BpQN3B60UmL6AtusH6zzvoIuKg_tC49Nu41HgdA";
@@ -30,7 +33,8 @@ router.get('/',function(req , res){
    
 	})
    });
-   router.post('/signUp',body('email').isEmail().withMessage('must be a valid email'),
+
+router.post('/signUp',body('email').isEmail().withMessage('must be a valid email'),
    body('name').not().isEmpty().withMessage('name must not be empty'),
    body('surname').not().isEmpty().withMessage('surname must not be empty'),
    body('password').not().isEmpty().withMessage('password must not be empty'),
@@ -55,6 +59,12 @@ router.get('/',function(req , res){
 	 var surname = req.body.surname;
 	 var email = req.body.email;
 	 var password = req.body.password;
+     const token = genAccess({name, surname, email,password});
+	 console.log(token);
+	 
+	 
+
+
 	 subscriber.findOne({Email:email},function(err,sub){
          if(err){
 			console.log('error fetching checking subscriber');
@@ -63,34 +73,65 @@ router.get('/',function(req , res){
             console.log('subscriber email already exists');
     	    res.status(500).json({error : "email already exists"});
 		 }else{
-			bcrypt.genSalt(saltRounds,(err , salt)=>{
-				bcrypt.hash(password,salt,(err , password_hash)=>{
-					var Subscriber = new subscriber ({
-						Name : name ,
-						Surname : surname,
-						Password : password_hash,
-						Email : email,
-						Subscriber_id :"",
-						Plan_id : "",
-						Start_time : "",
-						Status_Update_Time :"",
-						Payment_email_address :""
-				  });
-				  Subscriber.save(function(err){
-					if(err){
-						console.log('err saving subscriber');
-						res.status(500).json({error : "error saving subscriber"});
-					}else{
-						res.redirect("/");
-					}
-				})
-				})
-			})
+			var mail = async ()=>{
+				try{
+					var response = await sendMail({
+					   email: email,
+					   subject : "subscriber activation",
+					   html : `<h3>Hello ${name}</h3> <br><p>Thank you for subscribing to our website, click the following link to activate your account</p><br><a href=${process.env.SITE_URL}/subscriber/activate/${token}>activate account</a>`
+					});
+					res.status(200).json({message:"done, check your email address to activate your account"});
+				}catch(error){
+				   console.log("send email error"+error);
+				   res.status(500).json({error:"there was an error during signup"});
+				}
+			 }
+			 
+		mail();
 		
 		 }
 	 });
 	}
    });
+
+router.get('/activate/:token',function(req, res){
+ var token = req.params.token;
+ console.log(token);
+ jwt.verify(token, process.env.JWT_HASH, function(error, dec_token){
+	 if(error){
+		 console.log("there was an error:"+error);
+		 res.status(400).json({error:"expired or invalid token"});
+	 }else{
+		 console.log(dec_token);
+		const {name, surname, email,password} = dec_token;
+		console.log(name+surname+email+password);
+
+		bcrypt.genSalt(saltRounds,(err , salt)=>{
+			bcrypt.hash(password,salt,(err , password_hash)=>{
+				var Subscriber = new subscriber ({
+					Name : name ,
+					Surname : surname,
+					Password : password_hash,
+					Email : email,
+					Subscriber_id :"",
+					Plan_id : "",
+					Start_time : "",
+					Status_Update_Time :"",
+					Payment_email_address :""
+			  });
+			  Subscriber.save(function(err){
+				if(err){
+					console.log('err saving subscriber');
+					res.status(500).json({error : "error saving subscriber"});
+				}else{
+					res.redirect("/");
+				}
+			})
+			})
+		})
+	 }
+ })
+});
 
 router.post('/login', function(req ,res ,next){
     passport.authenticate('sub' , {
