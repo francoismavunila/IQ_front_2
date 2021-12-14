@@ -106,29 +106,40 @@ router.get('/activate/:token',function(req, res){
 		const {name, surname, email,password} = dec_token;
 		console.log(name+surname+email+password);
 
-		bcrypt.genSalt(saltRounds,(err , salt)=>{
-			bcrypt.hash(password,salt,(err , password_hash)=>{
-				var Subscriber = new subscriber ({
-					Name : name ,
-					Surname : surname,
-					Password : password_hash,
-					Email : email,
-					Subscriber_id :"",
-					Plan_id : "",
-					Start_time : "",
-					Status_Update_Time :"",
-					Payment_email_address :""
-			  });
-			  Subscriber.save(function(err){
-				if(err){
-					console.log('err saving subscriber');
-					res.status(500).json({error : "error saving subscriber"});
-				}else{
-					res.redirect("/");
-				}
-			})
-			})
+		subscriber.findOne({Email:email},function(err,sub){
+            if(err){
+				console.log('error fetching checking subscriber');
+				res.status(500).json({error : "server error"});
+			 }else if(sub){
+				console.log('subscriber email already exists');
+				res.status(500).json({error : "email already exists"});
+			 }else{
+			    bcrypt.genSalt(saltRounds,(err , salt)=>{
+					bcrypt.hash(password,salt,(err , password_hash)=>{
+						var Subscriber = new subscriber ({
+							Name : name ,
+							Surname : surname,
+							Password : password_hash,
+							Email : email,
+							Subscriber_id :"",
+							Plan_id : "",
+							Start_time : "",
+							Status_Update_Time :"",
+							Payment_email_address :""
+					  });
+					  Subscriber.save(function(err){
+						if(err){
+							console.log('err saving subscriber');
+							res.status(500).json({error : "error saving subscriber"});
+						}else{
+							res.redirect("/");
+						}
+					})
+					})
+				})
+			 }
 		})
+		
 	 }
  })
 });

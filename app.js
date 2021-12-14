@@ -142,6 +142,18 @@ app.use('/admin/products', products);
 //app.use('/admin/audios', audios);
 //app.use('/admin/videos', videos);
 
+app.use((req,res)=>{
+	const error = new Error('Not Found');
+	error.status=404;
+	next(error);
+})
+
+app.use((err,req,res,next)={
+	res.status(err.status || 500).json({
+		message :err.message
+	})
+})
+
 
 module.exports = app;
 
