@@ -49,7 +49,7 @@ router.post('/signUp',body('email').isEmail().withMessage('must be a valid email
 		val_errors.push(item.msg);	
 		});
 		console.log('error fetching checking subscriber');
-    	res.status(500).json({error : val_errors});
+    	res.status(400).json({success:false ,message : val_errors});
 		
 		}
 		else
@@ -68,10 +68,10 @@ router.post('/signUp',body('email').isEmail().withMessage('must be a valid email
 	 subscriber.findOne({Email:email},function(err,sub){
          if(err){
 			console.log('error fetching checking subscriber');
-    	    res.status(500).json({error : "server error"});
+    	    res.status(500).json({success: false,message : "server error"});
 		 }else if(sub){
             console.log('subscriber email already exists');
-    	    res.status(500).json({error : "email already exists"});
+    	    res.status(500).json({success: false, message : "email already exists"});
 		 }else{
 			var mail = async ()=>{
 				try{
@@ -80,10 +80,10 @@ router.post('/signUp',body('email').isEmail().withMessage('must be a valid email
 					   subject : "subscriber activation",
 					   html : `<h3>Hello ${name}</h3> <br><p>Thank you for subscribing to our website, click the following link to activate your account</p><br><a href=${process.env.SITE_URL}/subscriber/activate/${token}>activate account</a>`
 					});
-					res.status(200).json({message:"done, check your email address to activate your account"});
+					res.status(200).json({success: true, message:"done, check your email address to activate your account"});
 				}catch(error){
 				   console.log("send email error"+error);
-				   res.status(500).json({error:"there was an error during signup"});
+				   res.status(500).json({success: false, message:"there was an error during signup"});
 				}
 			 }
 			 
@@ -100,7 +100,7 @@ router.get('/activate/:token',function(req, res){
  jwt.verify(token, process.env.JWT_HASH, function(error, dec_token){
 	 if(error){
 		 console.log("there was an error:"+error);
-		 res.status(400).json({error:"expired or invalid token"});
+		 res.status(400).json({success: false,message:"expired or invalid token"});
 	 }else{
 		 console.log(dec_token);
 		const {name, surname, email,password} = dec_token;
@@ -109,10 +109,10 @@ router.get('/activate/:token',function(req, res){
 		subscriber.findOne({Email:email},function(err,sub){
             if(err){
 				console.log('error fetching checking subscriber');
-				res.status(500).json({error : "server error"});
+				res.status(500).json({success: false, message : "server error"});
 			 }else if(sub){
 				console.log('subscriber email already exists');
-				res.status(500).json({error : "email already exists"});
+				res.status(500).json({success: false,message : "email already exists"});
 			 }else{
 			    bcrypt.genSalt(saltRounds,(err , salt)=>{
 					bcrypt.hash(password,salt,(err , password_hash)=>{
@@ -130,9 +130,9 @@ router.get('/activate/:token',function(req, res){
 					  Subscriber.save(function(err){
 						if(err){
 							console.log('err saving subscriber');
-							res.status(500).json({error : "error saving subscriber"});
+							res.status(500).json({success: false,message : "error saving subscriber"});
 						}else{
-							res.redirect("/");
+							res.redirect("/subscriber/signUp");
 						}
 					})
 					})
@@ -143,14 +143,100 @@ router.get('/activate/:token',function(req, res){
 	 }
  })
 });
+router.get('/forgot_password',function(req,res){
+	console.log('here');
+	res.render('subscribers/reset_email');
+})
+router.post('/forgot_password',function(req,res){
+ var email = req.body.email;
+ console.log(email);
+ subscriber.findOne({Email:email},function(error,_sub){
+	 if(error){
+		 console.log(error)
+		 res.status(400).json({success:false,message:'the email address is not registered with us'});
+	 }else{
+		const token = genAccess({email});
+		var mail = async ()=>{
+			try{
+				var response = await sendMail({
+				   email: email,
+				   subject : "reset password",
+				   html : `<h3>Hello </h3> <br><p>Thank you for subscribing to our website, click the following link to reset your password</p><br><a href=${process.env.SITE_URL}/subscriber/reset/${token}>reset password</a>`
+				});
+				res.status(200).json({success: true, message:"done, check your email address to reset your account"});
+			}catch(error){
+			   console.log("send email error"+error);
+			   res.status(500).json({success: false, message:"there was an error during verification"});
+			}
+		 }
+		 
+		mail();
+	 }
+ })
+})
+
+router.get('/reset/:token',function(req, res){
+	var token = req.params.token;
+	console.log(token);
+    res.render('subscribers/reset',{
+		layout : 'main',
+		token : token
+	})
+   });
+
+router.post('/password/reset',function(req, res){
+	var password=req.body.password;
+	var token = req.body.token;
+
+	jwt.verify(token, process.env.JWT_HASH, function(error, dec_token){
+		if(error){
+			console.log("there was an error:"+error);
+			res.status(400).json({success: false,message:"expired or invalid token"});
+		}else{
+		   console.log(dec_token);
+		   const {email} = dec_token;
+		   console.log(email);
+		   subscriber.findOne({Email:email},function(err,sub){
+				if(err){
+					console.log('error fetching checking subscriber');
+					res.status(500).json({success: false, message : "server error"});
+				}else{
+					bcrypt.genSalt(saltRounds,(err , salt)=>{
+						bcrypt.hash(password,salt,(err , password_hash)=>{
+							sub.Password=password_hash;
+							sub.save(function(err){
+								if(err){
+									console.log('err saving subscriber');
+									res.status(500).json({success: false,message : "error saving subscriber"});
+								}else{
+									res.status(500).json({success: true,message : "done, visit the site to login"});
+								}
+							})
+						})
+					})
+				}
+			})
+			 
+		}
+	})
+})
 
 router.post('/login', function(req ,res ,next){
     passport.authenticate('sub' , {
-    	successRedirect : '/subscriber/home',
-    	failureRedirect : '/subscriber',
+    	successRedirect : '/subscriber/done',
+    	failureRedirect : '/subscriber/fail',
     	failureFlash : true 
     })(req , res , next);
 });
+
+router.get('/done',sub_Authenticated,function(req , res){
+	res.status(200).json({success:true ,message : 'done, getting to your home page in 2 seconds...', redirect:'/subscriber/home'});
+})
+
+router.get('/fail',sub_Authenticated,function(req , res){
+	console.log('failed');
+	res.status(200).json({success: false ,message : 'failed to login, password and username does not match'});
+})
 
 router.get('/home',sub_Authenticated,function(req , res){
  res.render('subscribers/home',{

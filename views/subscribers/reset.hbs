@@ -1,0 +1,23 @@
+<div class="spaceFromNav " style="display: block; text-align:center" >
+    <br><br><br><br><br>
+    <div class="alert_parent">
+        <div class="alert" id="alert_container">
+                    <span class="cls_btn_1" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <span class="alert_msg" id="alert_message"></span>
+        </div>
+    </div>
+    <div id="loader-container">
+      <div class="loader" id="loadr"></div>
+    </div>
+    <form method="post" action="/subscriber/password/reset"  onsubmit="passwordMatch(event, this)">
+        <label>enter new password</label><br>
+        <input type="password" name="password" id="password"><br>
+        <label>re-enter new password</label><br>
+        <input type="password" name="re_password" id="password2"><br>
+        <input type="hidden" name="token" value="{{token}}">
+        <button type="submit">submit</button>
+    </form>
+    <script type="text/javascript" src="/javascripts/postForm.js"></script>
+    <script type="text/javascript" src="/javascripts/password_match.js"></script>
+    <br><br><br><br><br>
+</div>

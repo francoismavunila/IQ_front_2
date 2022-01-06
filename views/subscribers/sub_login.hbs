@@ -1,21 +1,27 @@
 <div class="spaceFromNav " style="display: block; text-align:center" >
     <br><br><br><br><br>
-    <form method="post" action="/subscriber/login" onsubmit="postform(event,this)">
+    <div class="alert_parent">
+        <div class="alert" id="alert_container">
+                    <span class="cls_btn_1" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <span class="alert_msg" id="alert_message"></span>
+        </div>
+    </div>
+    <div id="loader-container">
+      <div class="loader" id="loadr"></div>
+    </div>
+    <form method="post" action="/subscriber/login" onsubmit="postform(event, this)" id="login">
         <label>email</label><br>
         <input type="email" name="email" placeholder="user@gmail.com"><br>
         <label>password</label><br>
         <input type="password" name="password" >
         <input type="submit">
     </form>
+    
     <br>
     <a href="/subscriber/signUp"><p>subscribe</p></a>
+    <a href="/subscriber/forgot_password">forgot password</a>
     <button onclick="forgot_pass()">forgot password</button>
      <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 
 </div>
 <script type="text/javascript" src="/javascripts/postForm.js"></script>
-<script>
-    function forgot_pass(){
-        
-    }
-</script>

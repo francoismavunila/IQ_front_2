@@ -580,10 +580,40 @@ font-size: 5em;
 	.program_cards_body{
 
 	}
-	#alert_prog_cont_form{
+	.alert_parent{
+		text-align: center;
+		background-color: #111111;
+		display: flex;
+		justify-content: center;
+	}
+	#alert_prog_cont_form,#alert_container{
 		display: none;
 		z-index: 1;
+		text-align: center;
 	}
+	.alert{
+		background-color: #ff9999;
+		border: 1px solid;
+		padding: 5px;
+		position: fixed;
+		display: block;
+		text-align: center;	
+		}
+		.alert_msg{
+		font-weight: bold;
+		color: #000000;	
+		}
+		.cls_btn_1{
+			margin-left: 10px;
+			color: white;
+			font-weight: bolder;
+			float: right;
+			cursor: pointer;
+			transition: 0.3s;
+			padding: 2px;
+		
+		}
+		
 	#program_video_form{
 		
 	}
@@ -857,4 +887,23 @@ footer{
  width: 30%;
  background-color: #cccccc;
 }
+}
+
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #222222; /* Blue */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+  display: none;
+}
+#loader-container{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

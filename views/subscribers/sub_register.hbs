@@ -1,5 +1,12 @@
 <div class="spaceFromNav " style="display: block; text-align:center" >
     <br><br><br><br><br>
+    <div class="alert_parent">
+        <div class="alert" id="alert_container">
+                    <span class="cls_btn_1" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <span class="alert_msg" id="alert_message"></span>
+        </div>
+    </div>
+
     <form method="post" action="/subscriber/signUp" onsubmit="postform(event, this)">
         <label>name</label><br>
         <input type="text" name="name" placeholder="john"><br>

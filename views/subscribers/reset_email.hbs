@@ -1,0 +1,22 @@
+ <div class="spaceFromNav " style="display: block; text-align:center" >
+    <br><br><br><br><br>
+   <div class="alert_parent">
+        <div class="alert" id="alert_container">
+                    <span class="cls_btn_1" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <span class="alert_msg" id="alert_message"></span>
+        </div>
+    </div>
+    <div id="loader-container">
+       <p></p>
+      <div class="loader" id="loadr"></div>
+    </div>
+    
+ <form method="post" action="/subscriber/forgot_password" onsubmit="postform(event, this)" >
+        <label> your email address</label><br>
+        <input type="email" name="email" placeholder="user@gmail.com"><br>
+        <button type="submit">submit</button>
+</form>
+
+ <br><br><br><br><br>
+</div>
+<script type="text/javascript" src="/javascripts/postForm.js"></script>
